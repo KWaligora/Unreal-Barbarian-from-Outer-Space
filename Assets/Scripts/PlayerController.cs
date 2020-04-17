@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     bool attackEnable = true;
     bool isAttacking = false;
 
+    //crouch var
+    float isCrouching = 0.0f;
+
     Rigidbody2D myRB;
     Animator myAnim;
     bool facingRight = true;
@@ -32,6 +35,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAttacking && Input.GetAxis("Fire1") > 0)
             StartCoroutine(Attack());
+        //crouch        
+        Crouch();
     }
 
     void FixedUpdate()
@@ -42,19 +47,23 @@ public class PlayerController : MonoBehaviour
         if (grounded && Input.GetAxis("Jump") > 0)
             Jump();
 
-        //move
-        float move = Input.GetAxis("Horizontal");
-        Movement(move);
+        //move        
+        Movement();
     }
 
-    void Movement(float move)
+    void Movement()
     {
-        myRB.velocity = new Vector2(maxSpeed * move, myRB.velocity.y);
-        myAnim.SetFloat("speed", Mathf.Abs(move));
-        if (move < 0 && facingRight)
-            Flip();
-        else if (move > 0 && !facingRight)
-            Flip();
+        float move = Input.GetAxis("Horizontal");
+        if (isCrouching>=0)
+        {
+            myRB.velocity = new Vector2(maxSpeed * move, myRB.velocity.y);
+            myAnim.SetFloat("Speed", Mathf.Abs(move));
+
+            if (move < 0 && facingRight)
+                Flip();
+            else if (move > 0 && !facingRight)
+                Flip();
+        }
     }
 
     void Flip()
@@ -75,11 +84,23 @@ public class PlayerController : MonoBehaviour
         isAttacking = true;
         if (attackEnable)
         {
-            myAnim.SetBool("Attack", isAttacking);
+            myAnim.SetTrigger("Attack");
             attackEnable = false;
         }
         yield return new WaitForSeconds(0.25f);
         attackEnable = true;
         isAttacking = false;
+    }
+
+    void Crouch()
+    {
+        isCrouching = Input.GetAxis("Vertical");
+        if (grounded && isCrouching < 0.0)
+        {
+            myRB.velocity = new Vector2(0, myRB.velocity.y);
+            myAnim.SetBool("Crouch", true);
+        }
+        else
+            myAnim.SetBool("Crouch", false);        
     }
 }
