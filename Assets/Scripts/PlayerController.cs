@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //move var
     public float maxSpeed;
+
+    //jump var
+    bool grounded = false;
+    float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float jumpHeight;
 
     Rigidbody2D myRB;
     Animator myAnim;
-    bool facingRight;
+    bool facingRight = true;
    
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-
-        facingRight = true;
     }
 
-    
     void FixedUpdate()
     {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        myAnim.SetBool("Grounded", grounded);
+        if (grounded && Input.GetAxis("Jump") > 0)
+            jump();
+
         float move = Input.GetAxis("Horizontal");
-        Movement(move);
+        Movement(move);        
     }
 
     void Movement(float move)
@@ -41,5 +51,10 @@ public class PlayerController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void jump()
+    {
+        myRB.AddForce(new Vector2(0, jumpHeight));
     }
 }
