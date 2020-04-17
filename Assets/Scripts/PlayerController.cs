@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float jumpHeight;
 
+    //attack var
+    bool attackEnable = true;
+    bool isAttacking = false;
+
     Rigidbody2D myRB;
     Animator myAnim;
     bool facingRight = true;
@@ -24,15 +28,24 @@ public class PlayerController : MonoBehaviour
         myAnim = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        if (!isAttacking && Input.GetAxis("Fire1") > 0)
+            StartCoroutine(Attack());
+    }
+
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if(isAttacking == false)
         myAnim.SetBool("Grounded", grounded);
+        //jump
         if (grounded && Input.GetAxis("Jump") > 0)
-            jump();
+            Jump();
 
+        //move
         float move = Input.GetAxis("Horizontal");
-        Movement(move);        
+        Movement(move);
     }
 
     void Movement(float move)
@@ -53,8 +66,22 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void jump()
+    void Jump()
     {
         myRB.AddForce(new Vector2(0, jumpHeight));
+    }
+
+    IEnumerator Attack()
+    {
+        Debug.Log("h");
+        isAttacking = true;
+        if (attackEnable)
+        {
+            myAnim.SetBool("Attack", isAttacking);
+            attackEnable = false;
+        }
+        yield return new WaitForSeconds(0.25f);
+        attackEnable = true;
+        isAttacking = false;
     }
 }

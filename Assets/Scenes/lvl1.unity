@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 286162034}
   - component: {fileID: 286162033}
   - component: {fileID: 286162035}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4386,6 +4386,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2896026979846891091, guid: 0b8432800560ceb42a532d895bd70098,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8996711572827062728, guid: 0b8432800560ceb42a532d895bd70098,
         type: 3}
       propertyPath: m_LocalPosition.x
