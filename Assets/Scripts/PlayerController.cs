@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if(isAttacking == false)
         myAnim.SetBool("Grounded", grounded);
         //jump
         if (grounded && Input.GetAxis("Jump") > 0)
@@ -73,7 +72,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Attack()
     {
-        Debug.Log("h");
         isAttacking = true;
         if (attackEnable)
         {
