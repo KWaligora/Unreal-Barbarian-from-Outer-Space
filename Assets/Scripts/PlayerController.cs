@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float maxSpeed;
+
+    Rigidbody2D myRB;
+    Animator myAnim;
+    bool facingRight;
+   
     void Start()
     {
-        
+        myRB = GetComponent<Rigidbody2D>();
+        myAnim = GetComponent<Animator>();
+
+        facingRight = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void FixedUpdate()
     {
-        
+        float move = Input.GetAxis("Horizontal");
+        Movement(move);
+    }
+
+    void Movement(float move)
+    {
+        myRB.velocity = new Vector2(maxSpeed * move, myRB.velocity.y);
+
+        if (move < 0 && facingRight)
+            Flip();
+        else if (move > 0 && !facingRight)
+            Flip();
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
     }
 }
