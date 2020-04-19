@@ -236,6 +236,24 @@ TextureImporter:
   - first:
       213: 1060382269790695306
     second: HeavyBandit_41
+  - first:
+      213: 3053050371656833489
+    second: HeavyBandit_36
+  - first:
+      213: 2327491785536938042
+    second: HeavyBandit_37
+  - first:
+      213: 8147498283591484272
+    second: HeavyBandit_38
+  - first:
+      213: -4073938923486468237
+    second: HeavyBandit_39
+  - first:
+      213: 8716058970237643610
+    second: HeavyBandit_40
+  - first:
+      213: 4542340209976563803
+    second: HeavyBandit_41
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -325,7 +343,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -346,7 +364,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -367,7 +385,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -388,7 +406,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -409,7 +427,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -430,7 +448,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -451,7 +469,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 288
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -472,7 +490,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 208
+        y: 256
         width: 48
         height: 48
       alignment: 0
@@ -492,7 +510,7 @@ TextureImporter:
       name: HeavyBandit_8
       rect:
         serializedVersion: 2
-        x: 384
+        x: 0
         y: 208
         width: 48
         height: 48
@@ -513,8 +531,8 @@ TextureImporter:
       name: HeavyBandit_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 48
+        y: 208
         width: 48
         height: 48
       alignment: 0
@@ -534,8 +552,8 @@ TextureImporter:
       name: HeavyBandit_10
       rect:
         serializedVersion: 2
-        x: 48
-        y: 160
+        x: 96
+        y: 208
         width: 48
         height: 48
       alignment: 0
@@ -555,8 +573,8 @@ TextureImporter:
       name: HeavyBandit_11
       rect:
         serializedVersion: 2
-        x: 96
-        y: 160
+        x: 144
+        y: 208
         width: 48
         height: 48
       alignment: 0
@@ -576,8 +594,8 @@ TextureImporter:
       name: HeavyBandit_12
       rect:
         serializedVersion: 2
-        x: 144
-        y: 160
+        x: 192
+        y: 208
         width: 48
         height: 48
       alignment: 0
@@ -597,8 +615,8 @@ TextureImporter:
       name: HeavyBandit_13
       rect:
         serializedVersion: 2
-        x: 192
-        y: 160
+        x: 240
+        y: 208
         width: 48
         height: 48
       alignment: 0
@@ -618,8 +636,8 @@ TextureImporter:
       name: HeavyBandit_14
       rect:
         serializedVersion: 2
-        x: 240
-        y: 160
+        x: 288
+        y: 208
         width: 48
         height: 48
       alignment: 0
@@ -639,8 +657,8 @@ TextureImporter:
       name: HeavyBandit_15
       rect:
         serializedVersion: 2
-        x: 288
-        y: 160
+        x: 336
+        y: 208
         width: 48
         height: 48
       alignment: 0
@@ -660,7 +678,7 @@ TextureImporter:
       name: HeavyBandit_16
       rect:
         serializedVersion: 2
-        x: 336
+        x: 0
         y: 160
         width: 48
         height: 48
@@ -681,7 +699,7 @@ TextureImporter:
       name: HeavyBandit_17
       rect:
         serializedVersion: 2
-        x: 384
+        x: 48
         y: 160
         width: 48
         height: 48
@@ -702,8 +720,8 @@ TextureImporter:
       name: HeavyBandit_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
+        x: 96
+        y: 160
         width: 48
         height: 48
       alignment: 0
@@ -723,8 +741,8 @@ TextureImporter:
       name: HeavyBandit_19
       rect:
         serializedVersion: 2
-        x: 48
-        y: 112
+        x: 144
+        y: 160
         width: 48
         height: 48
       alignment: 0
@@ -744,8 +762,8 @@ TextureImporter:
       name: HeavyBandit_20
       rect:
         serializedVersion: 2
-        x: 96
-        y: 112
+        x: 192
+        y: 160
         width: 48
         height: 48
       alignment: 0
@@ -765,8 +783,8 @@ TextureImporter:
       name: HeavyBandit_21
       rect:
         serializedVersion: 2
-        x: 144
-        y: 112
+        x: 240
+        y: 160
         width: 48
         height: 48
       alignment: 0
@@ -786,8 +804,8 @@ TextureImporter:
       name: HeavyBandit_22
       rect:
         serializedVersion: 2
-        x: 192
-        y: 112
+        x: 288
+        y: 160
         width: 48
         height: 48
       alignment: 0
@@ -807,8 +825,8 @@ TextureImporter:
       name: HeavyBandit_23
       rect:
         serializedVersion: 2
-        x: 240
-        y: 112
+        x: 336
+        y: 160
         width: 48
         height: 48
       alignment: 0
@@ -828,7 +846,7 @@ TextureImporter:
       name: HeavyBandit_24
       rect:
         serializedVersion: 2
-        x: 288
+        x: 0
         y: 112
         width: 48
         height: 48
@@ -849,7 +867,7 @@ TextureImporter:
       name: HeavyBandit_25
       rect:
         serializedVersion: 2
-        x: 336
+        x: 48
         y: 112
         width: 48
         height: 48
@@ -870,7 +888,7 @@ TextureImporter:
       name: HeavyBandit_26
       rect:
         serializedVersion: 2
-        x: 384
+        x: 96
         y: 112
         width: 48
         height: 48
@@ -891,8 +909,8 @@ TextureImporter:
       name: HeavyBandit_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 144
+        y: 112
         width: 48
         height: 48
       alignment: 0
@@ -912,8 +930,8 @@ TextureImporter:
       name: HeavyBandit_28
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 192
+        y: 112
         width: 48
         height: 48
       alignment: 0
@@ -933,8 +951,8 @@ TextureImporter:
       name: HeavyBandit_29
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 240
+        y: 112
         width: 48
         height: 48
       alignment: 0
@@ -954,8 +972,8 @@ TextureImporter:
       name: HeavyBandit_30
       rect:
         serializedVersion: 2
-        x: 144
-        y: 64
+        x: 288
+        y: 112
         width: 48
         height: 48
       alignment: 0
@@ -975,8 +993,8 @@ TextureImporter:
       name: HeavyBandit_31
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
+        x: 336
+        y: 112
         width: 48
         height: 48
       alignment: 0
@@ -996,7 +1014,7 @@ TextureImporter:
       name: HeavyBandit_32
       rect:
         serializedVersion: 2
-        x: 240
+        x: 0
         y: 64
         width: 48
         height: 48
@@ -1017,7 +1035,7 @@ TextureImporter:
       name: HeavyBandit_33
       rect:
         serializedVersion: 2
-        x: 288
+        x: 48
         y: 64
         width: 48
         height: 48
@@ -1038,7 +1056,7 @@ TextureImporter:
       name: HeavyBandit_34
       rect:
         serializedVersion: 2
-        x: 336
+        x: 96
         y: 64
         width: 48
         height: 48
@@ -1059,7 +1077,7 @@ TextureImporter:
       name: HeavyBandit_35
       rect:
         serializedVersion: 2
-        x: 384
+        x: 144
         y: 64
         width: 48
         height: 48
@@ -1080,6 +1098,48 @@ TextureImporter:
       name: HeavyBandit_36
       rect:
         serializedVersion: 2
+        x: 192
+        y: 64
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9daf3232d9e5a20800000000000000
+      internalID: 3053050371656833489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeavyBandit_37
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 64
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30a1968279ec4020800000000000000
+      internalID: 2327491785536938042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeavyBandit_38
+      rect:
+        serializedVersion: 2
         x: 0
         y: 16
         width: 48
@@ -1091,14 +1151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5c3bdd3e316f66b0800000000000000
-      internalID: -5300911316438139814
+      spriteID: 0734399858ab11170800000000000000
+      internalID: 8147498283591484272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeavyBandit_37
+      name: HeavyBandit_39
       rect:
         serializedVersion: 2
         x: 48
@@ -1112,14 +1172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d736b3ad96e0539f0800000000000000
-      internalID: -489469136704150659
+      spriteID: 377a3fc32267677c0800000000000000
+      internalID: -4073938923486468237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeavyBandit_38
+      name: HeavyBandit_40
       rect:
         serializedVersion: 2
         x: 96
@@ -1133,14 +1193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc4f4e0d47e29f20800000000000000
-      internalID: 3428056584520944860
+      spriteID: a5b2f5a2479a5f870800000000000000
+      internalID: 8716058970237643610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeavyBandit_39
+      name: HeavyBandit_41
       rect:
         serializedVersion: 2
         x: 144
@@ -1154,50 +1214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e02cf2608b4890120800000000000000
-      internalID: 2380579803954659854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeavyBandit_40
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 16
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb5155575ff363120800000000000000
-      internalID: 2393170575462045119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HeavyBandit_41
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 16
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8f2ff46e0c37be00800000000000000
-      internalID: 1060382269790695306
+      spriteID: b5850a8ca52a90f30800000000000000
+      internalID: 4542340209976563803
       vertices: []
       indices: 
       edges: []
