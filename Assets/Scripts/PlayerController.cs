@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     //attack var
     bool attackEnable = true;
     bool isAttacking = false;
+    int attackNum = 1;
 
     //crouch var
     float isCrouching = 0.0f;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //attack
         if (!isAttacking && Input.GetAxis("Fire1") > 0)
             StartCoroutine(Attack());
         //crouch        
@@ -82,13 +84,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator Attack()
     {
         isAttacking = true;
-        if (attackEnable)
-        {
+        if (attackNum == 1)
             myAnim.SetTrigger("Attack");
-            attackEnable = false;
-        }
+        else
+            myAnim.SetTrigger("Attack2");
+
+        attackNum *= -1;
         yield return new WaitForSeconds(0.25f);
-        attackEnable = true;
         isAttacking = false;
     }
 
