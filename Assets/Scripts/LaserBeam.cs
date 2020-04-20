@@ -15,6 +15,7 @@ public class LaserBeam : MonoBehaviour
 
     void Awake()
     {
+        Destroy(gameObject, lifeTime);
         myRB = GetComponent<Rigidbody2D>();
         if(transform.localRotation.z >0)
             myRB.AddForce(new Vector2(-1, 0) * maxSpeed, ForceMode2D.Impulse);
@@ -29,6 +30,7 @@ public class LaserBeam : MonoBehaviour
         {
             Debug.Log("hit enemy:" + enemy.name);
             enemy.GetComponent<IEnemy>().TakeDamage(1);
+            Destroy(gameObject);
         }
     }
 
