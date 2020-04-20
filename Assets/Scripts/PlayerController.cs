@@ -8,20 +8,24 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
 
     //jump var
-    bool grounded = false;
-    float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float jumpHeight;
+    bool grounded = false;
+    float groundCheckRadius = 0.2f;    
 
     //attack var
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayer;
     bool attackEnable = true;
     bool isAttacking = false;
-    int attackNum = 1;
+    int attackNum = 1;    
 
     //crouch var
     float isCrouching = 0.0f;
 
+    //other
     Rigidbody2D myRB;
     Animator myAnim;
     bool facingRight = true;
@@ -92,9 +96,22 @@ public class PlayerController : MonoBehaviour
         else
             myAnim.SetTrigger("Attack2");
 
+        Collider2D [] HitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+        foreach(Collider2D enemy in HitEnemys)
+        {
+            Debug.Log("hit enemy:" + enemy.name);
+            enemy.GetComponent<IEnemy>().TakeDamage(1);
+        }
         attackNum *= -1;
         yield return new WaitForSeconds(0.25f);
         isAttacking = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     IEnumerator LaserAttack()
