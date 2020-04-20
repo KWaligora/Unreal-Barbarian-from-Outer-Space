@@ -254,6 +254,12 @@ TextureImporter:
   - first:
       213: 4542340209976563803
     second: HeavyBandit_41
+  - first:
+      213: 4106777758382652970
+    second: HeavyBandit_42
+  - first:
+      213: -5996756665916672128
+    second: HeavyBandit_43
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1140,8 +1146,8 @@ TextureImporter:
       name: HeavyBandit_38
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 288
+        y: 64
         width: 48
         height: 48
       alignment: 0
@@ -1161,8 +1167,8 @@ TextureImporter:
       name: HeavyBandit_39
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 336
+        y: 64
         width: 48
         height: 48
       alignment: 0
@@ -1182,7 +1188,7 @@ TextureImporter:
       name: HeavyBandit_40
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 16
         width: 48
         height: 48
@@ -1203,7 +1209,7 @@ TextureImporter:
       name: HeavyBandit_41
       rect:
         serializedVersion: 2
-        x: 144
+        x: 48
         y: 16
         width: 48
         height: 48
@@ -1216,6 +1222,48 @@ TextureImporter:
       bones: []
       spriteID: b5850a8ca52a90f30800000000000000
       internalID: 4542340209976563803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeavyBandit_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e7fd3dc943ef830800000000000000
+      internalID: 4106777758382652970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeavyBandit_43
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087b493a59d37cca0800000000000000
+      internalID: -5996756665916672128
       vertices: []
       indices: 
       edges: []

@@ -18,9 +18,12 @@ public class PlayerController : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
+    public GameObject laserBeam;
+    public Transform gunTip;
     bool attackEnable = true;
     bool isAttacking = false;
-    int attackNum = 1;    
+    int attackNum = 1;
+    
 
     //crouch var
     float isCrouching = 0.0f;
@@ -107,17 +110,14 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
     IEnumerator LaserAttack()
     {
         isAttacking = true;
         myAnim.SetTrigger("LaserAttack");
+        if (facingRight)
+            Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        else
+            Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180f)));
         yield return new WaitForSeconds(0.25f);
         isAttacking = false;
     }
