@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
     {
         //attack
         if (!isAttacking && Input.GetAxis("Fire1") > 0)
-            StartCoroutine(Attack());
+            StartCoroutine(MeleeAttack());
+        else if (!isAttacking && Input.GetAxis("Fire2") > 0)
+            StartCoroutine(LaserAttack());
+
         //crouch        
         Crouch();
     }
@@ -81,7 +84,7 @@ public class PlayerController : MonoBehaviour
         myRB.AddForce(new Vector2(0, jumpHeight));
     }
 
-    IEnumerator Attack()
+    IEnumerator MeleeAttack()
     {
         isAttacking = true;
         if (attackNum == 1)
@@ -90,6 +93,14 @@ public class PlayerController : MonoBehaviour
             myAnim.SetTrigger("Attack2");
 
         attackNum *= -1;
+        yield return new WaitForSeconds(0.25f);
+        isAttacking = false;
+    }
+
+    IEnumerator LaserAttack()
+    {
+        isAttacking = true;
+        myAnim.SetTrigger("LaserAttack");
         yield return new WaitForSeconds(0.25f);
         isAttacking = false;
     }
