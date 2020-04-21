@@ -48,6 +48,7 @@ public class Skeleton : MonoBehaviour, IEnemy
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
         Destroy(myRB);
+        Destroy(this);
         myAnim.SetTrigger("Die");
     }
 

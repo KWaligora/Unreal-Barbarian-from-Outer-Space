@@ -30,18 +30,19 @@ public class PlayerStats : MonoBehaviour
                 Die();
             else
                 myAnim.SetTrigger("Hurt");
-            pushBack(enemy);
+            pushBack(enemy, pushBackForce);
         }
+        pushBack(enemy, pushBackForce/2.0f);
     }
 
-    void pushBack(Transform enemy)
+    void pushBack(Transform enemy, float pushForce)
     {
         StartCoroutine(FreezeController());
 
         Vector2 pushDirection = new Vector2(transform.position.x - enemy.position.x,
            (transform.position.y - enemy.position.y)).normalized;
 
-        pushDirection *= pushBackForce;
+        pushDirection *= pushForce;
 
         Rigidbody2D myRB = GetComponent<Rigidbody2D>();
         myRB.velocity = Vector2.zero;
