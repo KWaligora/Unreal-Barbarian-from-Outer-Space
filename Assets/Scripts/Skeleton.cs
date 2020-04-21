@@ -11,6 +11,7 @@ public class Skeleton : MonoBehaviour, IEnemy
     //attack
     public Transform attackPoint;
     public float attackRange = 1.0f;
+    public int damage;
     bool canAttack = true;
 
     //health
@@ -28,7 +29,8 @@ public class Skeleton : MonoBehaviour, IEnemy
 
     void Update()
     {
-        Attack();
+        if(canAttack)
+            StartCoroutine(Attack());
     }
 
     public void TakeDamage(int dmg)
@@ -56,9 +58,19 @@ public class Skeleton : MonoBehaviour, IEnemy
         Collider2D [] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach(Collider2D player in collider)
         {
-            //player.takeDMG
+            if(player.tag == "Player")
+            {
+                StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>()));
+            }
         }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         canAttack = true;
+    }
+
+    IEnumerator SendDamage(PlayerStats player)
+    {
+        yield return new WaitForSeconds(0.5f);
+        player.TakeDamage(damage);
+
     }
 }

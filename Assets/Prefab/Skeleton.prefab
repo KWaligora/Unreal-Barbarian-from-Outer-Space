@@ -194,6 +194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRangeRight: 0
   maxRangeLeft: 0
+  attackPoint: {fileID: 9038616873791099480}
+  attackRange: 1
+  damage: 3
   maxHealth: 10
 --- !u!95 &6718959511097023986
 Animator:

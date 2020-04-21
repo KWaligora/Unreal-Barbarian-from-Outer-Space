@@ -21,11 +21,14 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        currentHealth -= dmg;
-        if (currentHealth <= 0)
-            Die();
-        else
-            myAnim.SetTrigger("Hurt");
+        if (!playerController.isBlocking())
+        {
+            currentHealth -= dmg;
+            if (currentHealth <= 0)
+                Die();
+            else
+                myAnim.SetTrigger("Hurt");
+        }
     }
 
     void Die()
