@@ -20,10 +20,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
     public GameObject laserBeam;
     public Transform gunTip;
-    bool attackEnable = true;
-    bool isAttacking = false;
+    bool attacking = false;
+    bool blocking = false;
     int attackNum = 1;
-    
 
     //crouch var
     float isCrouching = 0.0f;
@@ -42,10 +41,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //attack
-        if (!isAttacking && Input.GetAxis("Fire1") > 0)
+        if (!attacking && Input.GetAxis("Fire1") > 0)
             StartCoroutine(MeleeAttack());
-        else if (!isAttacking && Input.GetAxis("Fire2") > 0)
+        else if (!attacking && Input.GetAxis("Fire2") > 0)
             StartCoroutine(LaserAttack());
+        //block
+        if (grounded && Input.GetAxis("Fire3") > 0)
+            Block(true);
+        else
+            Block(false);
 
         //crouch        
         Crouch();
@@ -66,7 +70,7 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         float move = Input.GetAxis("Horizontal");
-        if (isCrouching>=0)
+        if (isCrouching >= 0 && !blocking)
         {
             myRB.velocity = new Vector2(maxSpeed * move, myRB.velocity.y);
             myAnim.SetFloat("Speed", Mathf.Abs(move));
@@ -93,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator MeleeAttack()
     {
-        isAttacking = true;
+        attacking = true;
         if (attackNum == 1)
             myAnim.SetTrigger("Attack");
         else
@@ -107,28 +111,36 @@ public class PlayerController : MonoBehaviour
         }
         attackNum *= -1;
         yield return new WaitForSeconds(0.25f);
-        isAttacking = false;
+        attacking = false;
     }
 
     IEnumerator LaserAttack()
     {
-        isAttacking = true;
+        attacking = true;
         myAnim.SetTrigger("LaserAttack");
         if (facingRight)
             Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         else
             Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180f)));
         yield return new WaitForSeconds(0.25f);
-        isAttacking = false;
+        attacking = false;
+    }
+
+    void Block(bool isblocking)
+    {
+        blocking = isblocking;
+        if(blocking)
+            myRB.velocity = new Vector2(0, myRB.velocity.y);
+
+        myAnim.SetBool("Block", isblocking);        
     }
 
     void Crouch()
     {
         isCrouching = Input.GetAxis("Vertical");
-        if (grounded && isCrouching < 0.0)
-        {
-            myRB.velocity = new Vector2(0, myRB.velocity.y);
+        if (grounded && isCrouching < 0.0){
             myAnim.SetBool("Crouch", true);
+            myRB.velocity = new Vector2(0, myRB.velocity.y);
         }
         else
             myAnim.SetBool("Crouch", false);        
