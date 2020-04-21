@@ -61,16 +61,24 @@ public class Skeleton : MonoBehaviour, IEnemy
             if(player.tag == "Player")
             {
                 StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>()));
+                break;
             }
         }
         yield return new WaitForSeconds(2.0f);
         canAttack = true;
     }
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 
     IEnumerator SendDamage(PlayerStats player)
     {
         yield return new WaitForSeconds(0.5f);
-        player.TakeDamage(damage);
+        Debug.Log("turaj");
+        player.TakeDamage(damage, transform);
 
     }
 }
