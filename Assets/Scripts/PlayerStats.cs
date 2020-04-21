@@ -19,16 +19,23 @@ public class PlayerStats : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
-    void TakeDamage(int dmg)
+    public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
         if (currentHealth <= 0)
             Die();
+        else
+            myAnim.SetTrigger("Hurt");
     }
 
     void Die()
     {
         myAnim.SetTrigger("Death");
         playerController.enabled = false;
+    }
+
+    public bool isDead()
+    {
+        return currentHealth<=0;
     }
 }
