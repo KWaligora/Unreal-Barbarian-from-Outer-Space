@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class Skeleton : MonoBehaviour, IEnemy
 {
+    //move
+    public float maxRangeRight;
+    public float maxRangeLeft;
+
+    //attack
+    public Transform attackPoint;
+    public float attackRange = 1.0f;
+    bool canAttack = true;
+
+    //health
     public int maxHealth;
     int currentHealth;
+
+    //other
     Animator myAnim;
 
     void Start()
     {
         currentHealth = maxHealth;
         myAnim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        Attack();
     }
 
     public void TakeDamage(int dmg)
@@ -30,5 +47,18 @@ public class Skeleton : MonoBehaviour, IEnemy
         GetComponent<CircleCollider2D>().enabled = false;
         Destroy(myRB);
         myAnim.SetTrigger("Die");
+    }
+
+    IEnumerator Attack()
+    {
+        canAttack = false;
+        myAnim.SetTrigger("Attack");
+        Collider2D [] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
+        foreach(Collider2D player in collider)
+        {
+            //player.takeDMG
+        }
+        yield return new WaitForSeconds(1.0f);
+        canAttack = true;
     }
 }

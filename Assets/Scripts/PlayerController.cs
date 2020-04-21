@@ -145,4 +145,9 @@ public class PlayerController : MonoBehaviour
         else
             myAnim.SetBool("Crouch", false);        
     }
+
+    public bool isBlocking()
+    {
+        return blocking;
+    }
 }
