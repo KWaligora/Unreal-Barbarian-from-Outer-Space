@@ -12,6 +12,7 @@ public class Skeleton : MonoBehaviour, IEnemy
     public Transform attackPoint;
     public float attackRange = 1.0f;
     public int damage;
+    public float attackRatio;
     bool canAttack = true;
 
     //health
@@ -29,8 +30,11 @@ public class Skeleton : MonoBehaviour, IEnemy
 
     void Update()
     {
-        if(canAttack)
-            StartCoroutine(Attack());
+        if (canAttack)
+        {
+            StartCoroutine(AttackDelay(attackRatio));
+            Attack();
+        }
     }
 
     public void TakeDamage(int dmg)
@@ -39,7 +43,9 @@ public class Skeleton : MonoBehaviour, IEnemy
         if (currentHealth <= 0)
             Die();
         else
+        {
             myAnim.SetTrigger("Hit");
+        }
     }
 
     void Die()
@@ -52,9 +58,8 @@ public class Skeleton : MonoBehaviour, IEnemy
         myAnim.SetTrigger("Die");
     }
 
-    IEnumerator Attack()
+    void Attack()
     {
-        canAttack = false;
         myAnim.SetTrigger("Attack");
         Collider2D [] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach(Collider2D player in collider)
@@ -65,14 +70,14 @@ public class Skeleton : MonoBehaviour, IEnemy
                 break;
             }
         }
-        yield return new WaitForSeconds(2.0f);
-        canAttack = true;
+
     }
-    void OnDrawGizmosSelected()
+
+    IEnumerator AttackDelay(float delay)
     {
-        if (attackPoint == null)
-            return;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        canAttack = false;
+        yield return new WaitForSeconds(delay);
+        canAttack = true;
     }
 
     IEnumerator SendDamage(PlayerStats player)
