@@ -16,6 +16,8 @@ public class Spikes : MonoBehaviour
                 StartCoroutine(sentDamage(collision));
             }
         }
+        if (collision.tag == "Enemy")
+            collision.gameObject.GetComponent<IEnemy>().TakeDamage(damage);
     }
 
     IEnumerator sentDamage(Collider2D player)

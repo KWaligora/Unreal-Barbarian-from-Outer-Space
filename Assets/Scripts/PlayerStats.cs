@@ -22,17 +22,20 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int dmg, Transform enemy)
     {
-        if (!playerController.isBlocking())
+        if (currentHealth > 0)
         {
-            currentHealth -= dmg;
-            Debug.Log(currentHealth);
-            if (currentHealth <= 0)
-                Die();
-            else
-                myAnim.SetTrigger("Hurt");
-            pushBack(enemy, pushBackForce);
+            if (!playerController.isBlocking())
+            {
+                currentHealth -= dmg;
+                Debug.Log(currentHealth);
+                if (currentHealth <= 0)
+                    Die();
+                else
+                    myAnim.SetTrigger("Hurt");
+                pushBack(enemy, pushBackForce);
+            }
+            pushBack(enemy, pushBackForce / 2.0f);
         }
-        pushBack(enemy, pushBackForce/2.0f);
     }
 
     void pushBack(Transform enemy, float pushForce)
