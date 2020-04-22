@@ -82,9 +82,7 @@ public class Skeleton : MonoBehaviour, IEnemy
 
     IEnumerator SendDamage(PlayerStats player)
     {
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("turaj");
+        yield return new WaitForSeconds(0.5f);        
         player.TakeDamage(damage, transform);
-
     }
 }
