@@ -21,7 +21,7 @@ public class MainCamera : MonoBehaviour
     {
         Vector3 targetCamPos = target.position + offset;
 
-        transform.position = Vector3.Lerp(transform.position,new Vector3(targetCamPos.x, transform.position.y, targetCamPos.z), smoothing * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
 
         if (transform.position.y < maxY) transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
     }
