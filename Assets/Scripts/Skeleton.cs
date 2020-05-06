@@ -21,11 +21,13 @@ public class Skeleton : MonoBehaviour, IEnemy
 
     //other
     Animator myAnim;
+    Material material;
 
     void Start()
     {
         currentHealth = maxHealth;
         myAnim = GetComponent<Animator>();
+        material = GetComponent<SpriteRenderer>().material;
     }
 
     void Update()
@@ -44,6 +46,7 @@ public class Skeleton : MonoBehaviour, IEnemy
             Die();
         else
         {
+            StartCoroutine(SetTint());
             myAnim.SetTrigger("Hit");
         }
     }
@@ -84,5 +87,12 @@ public class Skeleton : MonoBehaviour, IEnemy
     {
         yield return new WaitForSeconds(0.5f);        
         player.TakeDamage(damage, transform);
+    }
+
+    IEnumerator SetTint()
+    {
+        material.SetColor("_Color1", new Color(2, 2, 2, 1));
+        yield return new WaitForSeconds(0.25f);
+        material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 }
