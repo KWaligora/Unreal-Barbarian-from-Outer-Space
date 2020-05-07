@@ -5,8 +5,10 @@ using UnityEngine;
 public class Skeleton : MonoBehaviour, IEnemy
 {
     //move
-    public float maxRangeRight;
-    public float maxRangeLeft;
+    public Transform pos1, pos2;
+    public float speed;
+    bool facingLeft = true;
+    bool canflip = true;
 
     //attack
     public Transform attackPoint;
@@ -22,21 +24,55 @@ public class Skeleton : MonoBehaviour, IEnemy
     //other
     Animator myAnim;
     Material material;
+    Rigidbody2D myRb;
 
     void Start()
     {
         currentHealth = maxHealth;
         myAnim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
+        myRb = GetComponent<Rigidbody2D>();
+        speed *= -1;         
     }
 
     void Update()
     {
+        //movement
+        myRb.velocity = new Vector2(speed, myRb.velocity.y);
+
+        if (transform.position.x <= pos1.position.x && canflip)
+            flip();
+
+        else if (transform.position.x >= pos2.position.x && canflip)
+            flip();
+
+        canflip = CheckFlip();
+        Debug.Log(canflip);
+
+        //attack
         if (canAttack)
-        {
-            StartCoroutine(AttackDelay(attackRatio));
-            Attack();
-        }
+          {
+              StartCoroutine(AttackDelay(attackRatio));
+              Attack();
+          }
+    }
+
+
+    bool CheckFlip()
+    {
+        if (transform.position.x > pos1.position.x && transform.position.x < pos2.position.x)
+            return true;
+        else return false;
+    }
+
+    void flip()
+    {
+        Debug.Log("true");
+        facingLeft = !facingLeft;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+        speed *= -1;
     }
 
     public void TakeDamage(int dmg)
