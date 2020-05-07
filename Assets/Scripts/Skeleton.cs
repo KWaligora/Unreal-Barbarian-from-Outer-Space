@@ -39,6 +39,8 @@ public class Skeleton : MonoBehaviour, IEnemy
     {
         //movement
         myRb.velocity = new Vector2(speed, myRb.velocity.y);
+        Debug.Log(myRb.velocity);
+        myAnim.SetFloat("speed", Mathf.Abs(myRb.velocity.x));
 
         if (transform.position.x <= pos1.position.x && canflip)
             flip();
@@ -46,14 +48,13 @@ public class Skeleton : MonoBehaviour, IEnemy
         else if (transform.position.x >= pos2.position.x && canflip)
             flip();
 
-        canflip = CheckFlip();
-        Debug.Log(canflip);
+        canflip = CheckFlip();    
 
         //attack
         if (canAttack)
           {
               StartCoroutine(AttackDelay(attackRatio));
-              Attack();
+              //Attack();
           }
     }
 
