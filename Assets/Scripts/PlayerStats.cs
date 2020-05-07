@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -13,11 +14,16 @@ public class PlayerStats : MonoBehaviour
     Animator myAnim;
     PlayerController playerController;
 
+    //HUD
+    public Slider healthSlider;
+
     void Start()
     {
         currentHealth = maxHealth;
         myAnim = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
     }
 
     public void TakeDamage(int dmg, Transform enemy)
@@ -27,7 +33,7 @@ public class PlayerStats : MonoBehaviour
             if (!playerController.isBlocking())
             {
                 currentHealth -= dmg;
-                Debug.Log(currentHealth);
+                healthSlider.value = currentHealth;
                 if (currentHealth <= 0)
                     Die();
                 else
