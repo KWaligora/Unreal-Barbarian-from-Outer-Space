@@ -6,7 +6,8 @@ public class Skeleton : MonoBehaviour, IEnemy
 {
     //move
     public Transform pos1, pos2;
-    public float speed;
+    public float maxSpeed;
+    float currentSpeed;
     bool facingLeft = true;
     bool canflip = true;
 
@@ -32,14 +33,15 @@ public class Skeleton : MonoBehaviour, IEnemy
         myAnim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
         myRb = GetComponent<Rigidbody2D>();
-        speed *= -1;         
+        maxSpeed *= -1;
+        currentSpeed = maxSpeed;
+        
     }
 
     void Update()
     {
-        //movement
-        myRb.velocity = new Vector2(speed, myRb.velocity.y);
-        Debug.Log(myRb.velocity);
+        myRb.velocity = new Vector2(currentSpeed, myRb.velocity.y);
+        //movement       
         myAnim.SetFloat("speed", Mathf.Abs(myRb.velocity.x));
 
         if (transform.position.x <= pos1.position.x && canflip)
@@ -48,14 +50,7 @@ public class Skeleton : MonoBehaviour, IEnemy
         else if (transform.position.x >= pos2.position.x && canflip)
             flip();
 
-        canflip = CheckFlip();    
-
-        //attack
-        if (canAttack)
-          {
-              StartCoroutine(AttackDelay(attackRatio));
-              //Attack();
-          }
+        canflip = CheckFlip();       
     }
 
 
@@ -73,7 +68,7 @@ public class Skeleton : MonoBehaviour, IEnemy
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-        speed *= -1;
+        currentSpeed *= -1;
     }
 
     public void TakeDamage(int dmg)
@@ -131,5 +126,19 @@ public class Skeleton : MonoBehaviour, IEnemy
         material.SetColor("_Color1", new Color(2, 2, 2, 1));
         yield return new WaitForSeconds(0.25f);
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player") && canAttack)
+        {
+            StartCoroutine(AttackDelay(attackRatio));
+            Attack();
+            currentSpeed = 0;
+        }            
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        currentSpeed = maxSpeed;
     }
 }

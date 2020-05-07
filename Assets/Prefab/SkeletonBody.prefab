@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3541314059444137700}
   - component: {fileID: 1129375087101226855}
   - component: {fileID: 6718959511097023986}
+  - component: {fileID: 2493001886159103893}
   m_Layer: 10
   m_Name: SkeletonBody
   m_TagString: Enemy
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos1: {fileID: 0}
   pos2: {fileID: 0}
-  speed: 3
+  maxSpeed: 3
   attackPoint: {fileID: 9038616873791099480}
   attackRange: 1
   damage: 3
@@ -220,3 +221,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &2493001886159103893
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163264640236033544}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.51978505, y: -0.6409054}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 3.84}
+    newSize: {x: 5.12, y: 3.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.921747, y: 2.1919572}
+  m_EdgeRadius: 0
