@@ -242,6 +242,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
+  meleeAttackDMG: 30
+  laserSlider: {fileID: 0}
   laserBeam: {fileID: 3379859422299581961, guid: f8de56e18aa8a5f40bc8e6d26ba68e7f,
     type: 3}
   gunTip: {fileID: 9112887224867060644}
@@ -257,8 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff7f12126a47464294b552bbde205b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   pushBackForce: 10
+  healthSlider: {fileID: 0}
 --- !u!70 &4945717365097503392
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

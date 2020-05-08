@@ -63,7 +63,6 @@ public class Skeleton : MonoBehaviour, IEnemy
 
     void flip()
     {
-        Debug.Log("true");
         facingLeft = !facingLeft;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
@@ -74,6 +73,7 @@ public class Skeleton : MonoBehaviour, IEnemy
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)
             Die();
         else

@@ -126,6 +126,7 @@ MonoBehaviour:
     m_Bits: 1024
   lifeTime: 1
   maxSpeed: 20
+  attackDMG: 100
 --- !u!95 &6895404951891217058
 Animator:
   serializedVersion: 3

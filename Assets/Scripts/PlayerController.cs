@@ -18,8 +18,9 @@ public class PlayerController : MonoBehaviour
     //attack var
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public LayerMask enemyLayer;    
-    
+    public LayerMask enemyLayer;
+    public int meleeAttackDMG;
+
     bool attacking = false;
     bool blocking = false;
     int attackNum = 1;
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
         Collider2D [] HitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach(Collider2D enemy in HitEnemys)
         {
-            enemy.GetComponent<IEnemy>().TakeDamage(1);
+            enemy.GetComponent<IEnemy>().TakeDamage(meleeAttackDMG);
         }
         attackNum *= -1;
         yield return new WaitForSeconds(0.25f);

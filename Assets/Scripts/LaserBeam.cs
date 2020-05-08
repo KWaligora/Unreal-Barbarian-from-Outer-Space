@@ -9,6 +9,7 @@ public class LaserBeam : MonoBehaviour
     public LayerMask enemyLayer;
     public float lifeTime;
     public float maxSpeed;
+    public int attackDMG;
 
     Rigidbody2D myRB;
     int damage;
@@ -28,8 +29,7 @@ public class LaserBeam : MonoBehaviour
         Collider2D[] HitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in HitEnemys)
         {
-            Debug.Log("hit enemy:" + enemy.name);
-            enemy.GetComponent<IEnemy>().TakeDamage(1);
+            enemy.GetComponent<IEnemy>().TakeDamage(attackDMG);
             Destroy(gameObject);
         }
     }
