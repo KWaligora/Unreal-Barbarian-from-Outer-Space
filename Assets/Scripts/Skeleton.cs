@@ -89,7 +89,9 @@ public class Skeleton : MonoBehaviour, IEnemy
         GetComponent<CapsuleCollider2D>().enabled = false;       
         Destroy(myRB);
         Destroy(this);
+        this.gameObject.layer = 0;
         myAnim.SetTrigger("Die");
+        material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 
     void Attack()
