@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,12 +18,18 @@ public class PlayerController : MonoBehaviour
     //attack var
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public LayerMask enemyLayer;
-    public GameObject laserBeam;
-    public Transform gunTip;
+    public LayerMask enemyLayer;    
+    
     bool attacking = false;
     bool blocking = false;
     int attackNum = 1;
+
+    //laser var
+    public Slider laserSlider;
+    public GameObject laserBeam;
+    public Transform gunTip;
+    int maxLaserCharge = 5;
+    int currentLaserCharge;    
 
     //crouch var
     float isCrouching = 0.0f;
@@ -36,6 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        currentLaserCharge = maxLaserCharge;
+        laserSlider.value = 5;
     }
 
     void Update()
@@ -116,14 +125,20 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator LaserAttack()
     {
-        attacking = true;
-        myAnim.SetTrigger("LaserAttack");
-        if (facingRight)
-            Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-        else
-            Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180f)));
-        yield return new WaitForSeconds(0.25f);
-        attacking = false;
+        if (currentLaserCharge > 0)
+        {
+            currentLaserCharge--;
+            laserSlider.value = currentLaserCharge;
+
+            attacking = true;
+            myAnim.SetTrigger("LaserAttack");
+            if (facingRight)
+                Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+            else
+                Instantiate(laserBeam, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180f)));
+            yield return new WaitForSeconds(0.25f);
+            attacking = false;
+        }
     }
 
     void Block(bool isblocking)
