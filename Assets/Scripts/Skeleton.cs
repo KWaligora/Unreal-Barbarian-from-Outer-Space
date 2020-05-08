@@ -86,8 +86,7 @@ public class Skeleton : MonoBehaviour, IEnemy
     void Die()
     {
         Rigidbody2D myRB = GetComponent<Rigidbody2D>();
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;       
         Destroy(myRB);
         Destroy(this);
         myAnim.SetTrigger("Die");
