@@ -165,4 +165,9 @@ public class PlayerController : MonoBehaviour
     {
         return blocking;
     }
+
+    public bool isFacingRight()
+    {
+        return facingRight;
+    }
 }

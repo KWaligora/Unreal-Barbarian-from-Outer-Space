@@ -133,9 +133,13 @@ public class Skeleton : MonoBehaviour, IEnemy
     {
         if (collision.gameObject.tag.Equals("Player") && canAttack)
         {
+            float playerXPos = collision.gameObject.transform.position.x;
+            if (playerXPos < transform.position.x && !facingLeft) flip();
+            else if (playerXPos > transform.position.x && facingLeft) flip();
+
             StartCoroutine(AttackDelay(attackRatio));
             Attack();
-            currentSpeed = 0;
+            currentSpeed = 0;            
         }            
     }
     private void OnTriggerExit2D(Collider2D collision)
