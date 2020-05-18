@@ -23,9 +23,11 @@ public class Skeleton : MonoBehaviour, IEnemy
     int currentHealth;
 
     //other
+    public int expValue;
     Animator myAnim;
     Material material;
     Rigidbody2D myRb;
+    public GameObject expBall;
 
     void Start()
     {
@@ -73,7 +75,6 @@ public class Skeleton : MonoBehaviour, IEnemy
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
-        Debug.Log(currentHealth);
         if (currentHealth <= 0)
             Die();
         else
@@ -92,6 +93,9 @@ public class Skeleton : MonoBehaviour, IEnemy
         this.gameObject.layer = 0;
         myAnim.SetTrigger("Die");
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
+
+        ExpBall ball = Instantiate(expBall, GetComponentInParent<Skeleton>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
+        ball.Init(expValue);
     }
 
     void Attack()

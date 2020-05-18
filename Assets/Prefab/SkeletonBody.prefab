@@ -202,6 +202,8 @@ MonoBehaviour:
   damage: 30
   attackRatio: 1
   maxHealth: 70
+  expValue: 60
+  expBall: {fileID: 5650170049934055341, guid: e85c7ec9a4e8e2b4095bb7c4e3f23129, type: 3}
 --- !u!95 &6718959511097023986
 Animator:
   serializedVersion: 3

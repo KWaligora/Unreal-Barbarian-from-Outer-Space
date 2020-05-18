@@ -136,6 +136,11 @@ PrefabInstance:
       propertyPath: pos2
       value: 
       objectReference: {fileID: 7250273902823024212}
+    - target: {fileID: 1129375087101226855, guid: 028bc665420dff14884279c831e4ac0b,
+        type: 3}
+      propertyPath: expValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2493001886159103893, guid: 028bc665420dff14884279c831e4ac0b,
         type: 3}
       propertyPath: m_Offset.x

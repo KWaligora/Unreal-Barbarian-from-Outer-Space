@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5265295649322308313}
   - component: {fileID: 744677439383960951}
   - component: {fileID: 4213381422838630333}
+  - component: {fileID: -3580658820995406508}
   m_Layer: 0
   m_Name: ExpBall
   m_TagString: Untagged
@@ -98,3 +99,15 @@ CircleCollider2D:
   m_Offset: {x: 0.04, y: -0.03999999}
   serializedVersion: 2
   m_Radius: 0.2237854
+--- !u!114 &-3580658820995406508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650170049934055341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3e1d82fae5ddb47a520e7885b48cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
