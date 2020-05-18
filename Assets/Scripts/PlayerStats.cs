@@ -9,6 +9,11 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth;
     int currentHealth;
 
+    //Exp
+    int currentExp;
+    int requiredExp;
+    public Slider expSlider;
+
     //other
     public float pushBackForce;
     Animator myAnim;
@@ -18,12 +23,20 @@ public class PlayerStats : MonoBehaviour
     public Slider healthSlider;
 
     void Start()
-    {
-        currentHealth = maxHealth;
+    {        
         myAnim = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+
+        //health
+        currentHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+
+        //exp
+        currentExp = 0;
+        requiredExp = 100;
+        expSlider.value = currentExp;
+        expSlider.maxValue = requiredExp;
     }
 
     public void TakeDamage(int dmg, Transform enemy)
@@ -83,6 +96,29 @@ public class PlayerStats : MonoBehaviour
     public void AddHealth(int health)
     {
         currentHealth += health;
+        healthSlider.value = currentHealth;
+    }
+
+    public void AddExp(int exp)
+    {
+        currentExp += exp;
+        if (currentExp >= requiredExp)
+        {
+            LvlUp(currentExp);
+            return;
+        }
+        expSlider.value = currentExp;
+    }
+
+    void LvlUp(int currentExp)
+    {
+        currentExp -= requiredExp;
+        expSlider.value = currentExp;
+
+        //health up
+        maxHealth += 10;
+        currentHealth = maxHealth;
+        healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
     }
 }
