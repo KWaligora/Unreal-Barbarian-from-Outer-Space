@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float jumpHeight;
     bool grounded = false;
-    float groundCheckRadius = 0.2f;    
+    bool canJump = true;
+    float groundCheckRadius = 0.2f; 
 
     //attack var
     public Transform attackPoint;
@@ -70,8 +71,8 @@ public class PlayerController : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         myAnim.SetBool("Grounded", grounded);
         //jump
-        if (grounded && Input.GetAxis("Jump") > 0)
-            Jump();
+        if (grounded && Input.GetAxis("Jump") > 0 && canJump)
+            StartCoroutine(Jump());
 
         //move        
         Movement();
@@ -100,10 +101,15 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void Jump()
+    IEnumerator Jump()
     {
+        canJump = false;
         myRB.AddForce(new Vector2(0, jumpHeight));
+        yield return new WaitForSeconds(0.5f);
+        canJump = true;
     }
+
+
 
     IEnumerator MeleeAttack()
     {
