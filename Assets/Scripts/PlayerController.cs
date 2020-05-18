@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-        currentLaserCharge = maxLaserCharge;
-        laserSlider.value = 5;
+        currentLaserCharge = 0;
+        laserSlider.value = 0;
     }
 
     void Update()
@@ -170,5 +170,14 @@ public class PlayerController : MonoBehaviour
     public bool isBlocking()
     {
         return blocking;
+    }
+
+    public void AddLaserCharge()
+    {
+        if (currentLaserCharge < maxLaserCharge)
+        {
+            currentLaserCharge++;
+            laserSlider.value = currentLaserCharge;
+        }
     }
 }

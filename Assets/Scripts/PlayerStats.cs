@@ -79,4 +79,10 @@ public class PlayerStats : MonoBehaviour
         if(currentHealth>0)
             playerController.enabled = true;
     }
+
+    public void AddHealth(int health)
+    {
+        currentHealth += health;
+        healthSlider.value = currentHealth;
+    }
 }
