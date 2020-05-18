@@ -46400,7 +46400,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Radar wykry\u0142 \u017Ce przed chwil\u0105 tutaj walczy\u0142."
+  m_Text: 
 --- !u!222 &334502977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46754,7 +46754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 162.14, y: 14.84, z: -13}
+  m_LocalPosition: {x: -24.079971, y: 7.79, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73177,6 +73177,7 @@ MonoBehaviour:
   dialogue:
     name: Barbarian
     sentences:
+    - "Radar wykry\u0142, \u017Ce przed chwil\u0105 tutaj walczy\u0142."
     - "Musi by\u0107 gdzie\u015B niedaleko...\t"
 --- !u!61 &1852412741
 BoxCollider2D:
@@ -81603,12 +81604,12 @@ PrefabInstance:
     - target: {fileID: 8996711572827062728, guid: 0b8432800560ceb42a532d895bd70098,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 140.95998
+      value: -26.89
       objectReference: {fileID: 0}
     - target: {fileID: 8996711572827062728, guid: 0b8432800560ceb42a532d895bd70098,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.960001
+      value: 5.91
       objectReference: {fileID: 0}
     - target: {fileID: 8996711572827062728, guid: 0b8432800560ceb42a532d895bd70098,
         type: 3}
