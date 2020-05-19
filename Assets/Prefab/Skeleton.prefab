@@ -13,8 +13,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02263832, y: -0.19012308}
-  m_Size: {x: 0.76841354, y: 2.4354982}
+  m_Offset: {x: 0.02263832, y: -0.14152157}
+  m_Size: {x: 0.76841354, y: 2.3382952}
   m_Direction: 0
 --- !u!1 &2526070013252398489
 GameObject:
@@ -100,7 +100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5911483616318723822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.802494, y: -5.413754, z: 0.25401103}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 280549172820824501}
@@ -194,22 +194,22 @@ PrefabInstance:
     - target: {fileID: 9163264640236033546, guid: 028bc665420dff14884279c831e4ac0b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.74598897
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163264640236033546, guid: 028bc665420dff14884279c831e4ac0b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163264640236033546, guid: 028bc665420dff14884279c831e4ac0b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163264640236033546, guid: 028bc665420dff14884279c831e4ac0b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163264640236033546, guid: 028bc665420dff14884279c831e4ac0b,
         type: 3}
