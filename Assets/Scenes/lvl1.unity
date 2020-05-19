@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: pos2
       value: 
       objectReference: {fileID: 9034598}
+    - target: {fileID: 8314377118703249624, guid: 7cb8a72824b04694da315f4a825d2e5f,
+        type: 3}
+      propertyPath: expValue
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb8a72824b04694da315f4a825d2e5f, type: 3}
 --- !u!4 &9034597 stripped
@@ -73571,6 +73576,11 @@ PrefabInstance:
       propertyPath: pos2
       value: 
       objectReference: {fileID: 1875750628}
+    - target: {fileID: 8314377118703249624, guid: 7cb8a72824b04694da315f4a825d2e5f,
+        type: 3}
+      propertyPath: expValue
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb8a72824b04694da315f4a825d2e5f, type: 3}
 --- !u!4 &1875750627 stripped
@@ -81813,6 +81823,11 @@ PrefabInstance:
       propertyPath: pos2
       value: 
       objectReference: {fileID: 586871175}
+    - target: {fileID: 8314377118703249624, guid: 7cb8a72824b04694da315f4a825d2e5f,
+        type: 3}
+      propertyPath: expValue
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb8a72824b04694da315f4a825d2e5f, type: 3}
 --- !u!1001 &2854725747079057050
@@ -82101,6 +82116,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1724271764704235508, guid: 0b8432800560ceb42a532d895bd70098,
+        type: 3}
+      propertyPath: expSlider
+      value: 
+      objectReference: {fileID: 753881725}
     - target: {fileID: 8996711572827062728, guid: 0b8432800560ceb42a532d895bd70098,
         type: 3}
       propertyPath: m_LocalPosition.x
