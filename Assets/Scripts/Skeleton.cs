@@ -10,6 +10,7 @@ public class Skeleton : MonoBehaviour, IEnemy
     float currentSpeed;
     bool facingLeft = true;
     bool canflip = true;
+    bool isAttacking = false;
 
     //attack
     public Transform attackPoint;
@@ -46,25 +47,25 @@ public class Skeleton : MonoBehaviour, IEnemy
         //movement       
         myAnim.SetFloat("speed", Mathf.Abs(myRb.velocity.x));
 
-        if (transform.position.x <= pos1.position.x && canflip)
+        if (transform.position.x <= pos1.position.x && CheckFlip())
             flip();
 
-        else if (transform.position.x >= pos2.position.x && canflip)
+        else if (transform.position.x >= pos2.position.x && CheckFlip())
             flip();
 
-        canflip = CheckFlip();       
+              
     }
 
 
     bool CheckFlip()
     {
-        if (transform.position.x > pos1.position.x && transform.position.x < pos2.position.x)
+        if (transform.position.x > pos1.position.x && transform.position.x < pos2.position.x && !isAttacking)
             return true;
         else return false;
     }
 
     void flip()
-    {
+    {        
         facingLeft = !facingLeft;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
@@ -143,13 +144,15 @@ public class Skeleton : MonoBehaviour, IEnemy
             if (playerXPos < transform.position.x && !facingLeft) flip();
             else if (playerXPos > transform.position.x && facingLeft) flip();
 
+            isAttacking = true;
             StartCoroutine(AttackDelay(attackRatio));
             Attack();
-            currentSpeed = 0;            
+            currentSpeed = 0;              
         }            
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        isAttacking = false;
         currentSpeed = maxSpeed;
     }
 }
