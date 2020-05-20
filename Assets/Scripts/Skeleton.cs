@@ -9,7 +9,6 @@ public class Skeleton : MonoBehaviour, IEnemy
     public float maxSpeed;
     float currentSpeed;
     bool facingLeft = true;
-    bool canflip = true;
     bool isAttacking = false;
 
     //attack

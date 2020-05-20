@@ -9,7 +9,6 @@ public class BowMan : MonoBehaviour, IEnemy
     public float maxSpeed;
     float currentSpeed;
     bool facingLeft = true;
-    bool canflip = true;
 
     //attack
     public int damage;
@@ -17,6 +16,7 @@ public class BowMan : MonoBehaviour, IEnemy
     public GameObject arrow;
     public Transform arrowPlace;
     bool canAttack = true;
+    bool isAttacking = false;
     
 
     //health
@@ -47,19 +47,17 @@ public class BowMan : MonoBehaviour, IEnemy
         //movement       
         myAnim.SetFloat("Speed", Mathf.Abs(myRb.velocity.x));
 
-        if (transform.position.x <= pos1.position.x && canflip)
+        if (transform.position.x <= pos1.position.x && CheckFlip())
             flip();
 
-        else if (transform.position.x >= pos2.position.x && canflip)
+        else if (transform.position.x >= pos2.position.x && CheckFlip())
             flip();
-
-        canflip = CheckFlip();
     }
 
 
     bool CheckFlip()
     {
-        if (transform.position.x > pos1.position.x && transform.position.x < pos2.position.x)
+        if (transform.position.x > pos1.position.x && transform.position.x < pos2.position.x && !isAttacking)
             return true;
         else return false;
     }
@@ -141,6 +139,7 @@ public class BowMan : MonoBehaviour, IEnemy
             if (playerXPos < transform.position.x && !facingLeft) flip();
             else if (playerXPos > transform.position.x && facingLeft) flip();
 
+            isAttacking = true;
             StartCoroutine(AttackDelay(attackRatio));
             Attack();
             currentSpeed = 0;
@@ -148,6 +147,7 @@ public class BowMan : MonoBehaviour, IEnemy
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        isAttacking = false;
         currentSpeed = maxSpeed;
     }
 }
