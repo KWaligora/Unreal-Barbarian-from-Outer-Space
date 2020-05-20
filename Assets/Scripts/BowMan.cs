@@ -106,9 +106,11 @@ public class BowMan : MonoBehaviour, IEnemy
         myAnim.SetTrigger("Attack");
 
         if (facingLeft)
-            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 180f)));        
+            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 180f))).gameObject.GetComponent<Arrow>().SetDamage(damage);
         else
-            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<Arrow>().SetDamage(damage);
+
+
     }
 
     IEnumerator AttackDelay(float delay)

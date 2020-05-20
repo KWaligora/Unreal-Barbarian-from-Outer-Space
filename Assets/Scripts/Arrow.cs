@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    public Transform attackPoint;
-    public float attackRange = 0.2f;
-    public LayerMask enemyLayer;
     public float lifeTime;
     public float maxSpeed;
-    public int attackDMG;
 
     Rigidbody2D myRB;
     int damage;
@@ -28,8 +24,8 @@ public class Arrow : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<PlayerStats>().TakeDamage(10, transform);
-            Destroy(GetComponent<Rigidbody2D>());
+            collision.gameObject.GetComponent<PlayerStats>().TakeDamage(damage, transform);
+            Destroy(myRB);
             transform.SetParent(collision.transform);
         }
     }
