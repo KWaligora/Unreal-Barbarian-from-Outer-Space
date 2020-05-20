@@ -14,7 +14,10 @@ public class BowMan : MonoBehaviour, IEnemy
     //attack
     public int damage;
     public float attackRatio;
+    public GameObject arrow;
+    public Transform arrowPlace;
     bool canAttack = true;
+    
 
     //health
     public int maxHealth;
@@ -100,7 +103,12 @@ public class BowMan : MonoBehaviour, IEnemy
 
     void Attack()
     {
-        myAnim.SetTrigger("Attack");        
+        myAnim.SetTrigger("Attack");
+
+        if (facingLeft)
+            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 180f)));        
+        else
+            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
     IEnumerator AttackDelay(float delay)
