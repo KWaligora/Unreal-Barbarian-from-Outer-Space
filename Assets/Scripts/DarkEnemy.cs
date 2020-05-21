@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skeleton : MonoBehaviour, IEnemy
+public class DarkEnemy : MonoBehaviour, IEnemy
 {
     //move
     public Transform pos1, pos2;
@@ -37,7 +37,7 @@ public class Skeleton : MonoBehaviour, IEnemy
         myRb = GetComponent<Rigidbody2D>();
         maxSpeed *= -1;
         currentSpeed = maxSpeed;
-        
+
     }
 
     void Update()
@@ -51,8 +51,6 @@ public class Skeleton : MonoBehaviour, IEnemy
 
         else if (transform.position.x >= pos2.position.x && CheckFlip())
             flip();
-
-              
     }
 
 
@@ -64,7 +62,7 @@ public class Skeleton : MonoBehaviour, IEnemy
     }
 
     void flip()
-    {        
+    {
         facingLeft = !facingLeft;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
@@ -80,21 +78,20 @@ public class Skeleton : MonoBehaviour, IEnemy
         else
         {
             StartCoroutine(SetTint());
-            myAnim.SetTrigger("Hit");
         }
     }
 
     void Die()
     {
         Rigidbody2D myRB = GetComponent<Rigidbody2D>();
-        GetComponent<CapsuleCollider2D>().enabled = false;       
+        GetComponent<CapsuleCollider2D>().enabled = false;
         Destroy(myRB);
-        
+
         this.gameObject.layer = 0;
         myAnim.SetTrigger("Die");
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
 
-        ExpBall ball = Instantiate(expBall, GetComponentInParent<Skeleton>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
+        ExpBall ball = Instantiate(expBall, GetComponentInParent<DarkEnemy>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
         ball.Init(expValue);
 
         Destroy(this);
@@ -103,10 +100,10 @@ public class Skeleton : MonoBehaviour, IEnemy
     void Attack()
     {
         myAnim.SetTrigger("Attack");
-        Collider2D [] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
-        foreach(Collider2D player in collider)
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
+        foreach (Collider2D player in collider)
         {
-            if(player.tag == "Player")
+            if (player.tag == "Player")
             {
                 StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>()));
                 break;
@@ -124,7 +121,7 @@ public class Skeleton : MonoBehaviour, IEnemy
 
     IEnumerator SendDamage(PlayerStats player)
     {
-        yield return new WaitForSeconds(0.5f);        
+        yield return new WaitForSeconds(0.5f);
         player.TakeDamage(damage, transform);
     }
 
@@ -146,8 +143,8 @@ public class Skeleton : MonoBehaviour, IEnemy
             isAttacking = true;
             StartCoroutine(AttackDelay(attackRatio));
             Attack();
-            currentSpeed = 0;              
-        }            
+            currentSpeed = 0;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
