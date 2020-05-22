@@ -287,15 +287,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9405d8294aa6441a89dac8641f217d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos1: {fileID: 499874120836317902}
-  pos2: {fileID: 6906039641676748090}
   maxSpeed: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   wallsCheck: {fileID: 5920452196678805457}
   attackPoint: {fileID: 93166603199057262}
-  attackRange: 1
+  attackRange: 2
   damage: 40
   attackRatio: 2
   maxHealth: 100

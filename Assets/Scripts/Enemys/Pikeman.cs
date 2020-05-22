@@ -2,99 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pikeman : MonoBehaviour, IEnemy
+public class Pikeman : Enemy, IEnemy
 {
-    //move
-    public Transform pos1, pos2;
-    public float maxSpeed;
-    public LayerMask wallsLayer;
-    public Transform wallsCheck;
-    Collider2D touchingWalls;
-    float currentSpeed;
-    bool facingLeft = true;
-    bool isAttacking = false;
-
-    //attack
-    public Transform attackPoint;
-    public float attackRange = 1.0f;
-    public int damage;
-    public float attackRatio;
-    bool canAttack = true;
-
-    //health
-    public int maxHealth;
-    int currentHealth;
-
-    //other
-    public int expValue;
-    Animator myAnim;
-    Material material;
-    Rigidbody2D myRb;
-    public GameObject expBall;
-
-    void Start()
+    protected override void Start()
     {
-        currentHealth = maxHealth;
-        myAnim = GetComponent<Animator>();
-        material = GetComponent<SpriteRenderer>().material;
-        myRb = GetComponent<Rigidbody2D>();
-        maxSpeed *= -1;
-        currentSpeed = maxSpeed;
-
+        base.Start();
     }
 
     void Update()
     {
-        myRb.velocity = new Vector2(currentSpeed, myRb.velocity.y);
-        //movement       
-        myAnim.SetFloat("Speed", Mathf.Abs(myRb.velocity.x));        
-        CheckFlip();       
+        SetMovement();
     }
 
-
-    void CheckFlip()
-    {
-        touchingWalls = Physics2D.OverlapCircle(wallsCheck.position, 0.2f, wallsLayer);
-        if (touchingWalls && touchingWalls.tag.Equals("Walls"))
-            flip();
-    }
-
-    void flip()
-    {
-        facingLeft = !facingLeft;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-        currentSpeed *= -1;
-    }
-
-    public void TakeDamage(int dmg)
-    {
-        currentHealth -= dmg;
-        if (currentHealth <= 0)
-            Die();
-        else        
-            StartCoroutine(SetTint());
-        
-    }
-
-    void Die()
-    {
-        Rigidbody2D myRB = GetComponent<Rigidbody2D>();
-        GetComponent<CapsuleCollider2D>().enabled = false;
-        Destroy(myRB);
-
-        this.gameObject.layer = 0;
-        myAnim.SetTrigger("Die");
-        material.SetColor("_Color1", new Color(1, 1, 1, 1));
-
-        ExpBall ball = Instantiate(expBall, GetComponentInParent<Pikeman>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
-        ball.Init(expValue);
-
-        Destroy(this);
-    }
-
-    void Attack()
+    protected override void Attack()
     {
         myAnim.SetTrigger("Attack");
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
@@ -106,46 +26,11 @@ public class Pikeman : MonoBehaviour, IEnemy
                 break;
             }
         }
-
     }
 
-    IEnumerator AttackDelay(float delay)
+    protected override void CreateExpBall()
     {
-        canAttack = false;
-        yield return new WaitForSeconds(delay);
-        canAttack = true;
-    }
-
-    IEnumerator SendDamage(PlayerStats player)
-    {
-        yield return new WaitForSeconds(0.5f);
-        player.TakeDamage(damage, transform);
-    }
-
-    IEnumerator SetTint()
-    {
-        material.SetColor("_Color1", new Color(2, 2, 2, 1));
-        yield return new WaitForSeconds(0.25f);
-        material.SetColor("_Color1", new Color(1, 1, 1, 1));
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Player") && canAttack)
-        {
-            float playerXPos = collision.gameObject.transform.position.x;
-            if (playerXPos < transform.position.x && !facingLeft) flip();
-            else if (playerXPos > transform.position.x && facingLeft) flip();
-
-            isAttacking = true;
-            StartCoroutine(AttackDelay(attackRatio));
-            Attack();
-            currentSpeed = 0;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        isAttacking = false;
-        currentSpeed = maxSpeed;
+        ExpBall ball = Instantiate(expBall, GetComponentInParent<ExpBall>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
+        ball.Init(expValue);
     }
 }
