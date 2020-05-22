@@ -4,33 +4,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //move
+    #region Move_Var
     public float maxSpeed;
     public LayerMask groundLayer;
     public Transform wallsCheck;
     Collider2D touchingWalls;
     float currentSpeed;
     bool facingLeft = true;
+    #endregion
 
-    //attack
+    #region Attack_Var
     public Transform attackPoint;
     public float attackRange = 1.0f;
     public int damage;
     public float attackRatio;
     bool canAttack = true;
+    #endregion
 
-    //health
+    #region Health_Var
     public int maxHealth;
     int currentHealth;
+    #endregion
 
-    //other
+    #region Other_Var
     public int expValue;
     public GameObject expBall;
     protected Animator myAnim;
     Material material;
     Rigidbody2D myRb;
+    #endregion
     
-
     protected virtual void Start()
     {
         currentHealth = maxHealth;
@@ -41,6 +44,8 @@ public class Enemy : MonoBehaviour
         currentSpeed = maxSpeed;
 
     }
+
+    #region Movement
 
     protected void SetMovement()
     {
@@ -65,6 +70,10 @@ public class Enemy : MonoBehaviour
         currentSpeed *= -1;
     }
 
+    #endregion
+
+    #region TakeDamage
+
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
@@ -72,6 +81,13 @@ public class Enemy : MonoBehaviour
             Die();
         else
             StartCoroutine(SetTint());
+    }
+
+    IEnumerator SetTint()
+    {
+        material.SetColor("_Color1", new Color(2, 2, 2, 1));
+        yield return new WaitForSeconds(0.25f);
+        material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 
     void Die()
@@ -89,16 +105,13 @@ public class Enemy : MonoBehaviour
         Destroy(this);
     }
 
-    protected virtual void CreateExpBall() //Override
-    {
-        ExpBall ball = Instantiate(expBall, GetComponentInParent<ExpBall>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
-        ball.Init(expValue);
-    }
+    protected virtual void CreateExpBall() { } //Override 
 
-    protected virtual void Attack() //Override
-    {
-        
-    }
+    #endregion
+    
+    #region Attack
+
+    protected virtual void Attack() { } //Override        
 
     IEnumerator AttackDelay(float delay)
     {
@@ -111,13 +124,6 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         player.TakeDamage(damage, transform);
-    }
-
-    IEnumerator SetTint()
-    {
-        material.SetColor("_Color1", new Color(2, 2, 2, 1));
-        yield return new WaitForSeconds(0.25f);
-        material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -137,4 +143,6 @@ public class Enemy : MonoBehaviour
     {
         currentSpeed = maxSpeed;
     }
+
+    #endregion
 }
