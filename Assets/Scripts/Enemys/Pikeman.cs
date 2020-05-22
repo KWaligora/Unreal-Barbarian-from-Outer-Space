@@ -30,7 +30,7 @@ public class Pikeman : Enemy, IEnemy
 
     protected override void CreateExpBall()
     {
-        ExpBall ball = Instantiate(expBall, GetComponentInParent<ExpBall>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
+        ExpBall ball = Instantiate(expBall, GetComponentInParent<Pikeman>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
         ball.Init(expValue);
     }
 }

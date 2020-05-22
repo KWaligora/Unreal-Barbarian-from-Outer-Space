@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         maxSpeed *= -1;
         currentSpeed = maxSpeed;
-
     }
 
     #region Movement
@@ -115,7 +114,18 @@ public class Enemy : MonoBehaviour
     
     #region Attack
 
-    protected virtual void Attack() { } //Override        
+    protected virtual void Attack() {  //Override  
+        myAnim.SetTrigger("Attack");
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
+        foreach (Collider2D player in collider)
+        {
+            if (player.tag == "Player")
+            {
+                StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>()));
+                break;
+            }
+        }
+    }       
 
     IEnumerator AttackDelay(float delay)
     {
@@ -134,6 +144,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player") && canAttack)
         {
+            //if player is behind, flip
             float playerXPos = collision.gameObject.transform.position.x;
             if (playerXPos < transform.position.x && !facingLeft) flip();
             else if (playerXPos > transform.position.x && facingLeft) flip();
@@ -145,7 +156,10 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        currentSpeed = maxSpeed;
+        if (facingLeft)
+            currentSpeed = maxSpeed;
+        else
+            currentSpeed = -maxSpeed;
     }
 
     #endregion
