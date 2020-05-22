@@ -7,6 +7,9 @@ public class Pikeman : MonoBehaviour, IEnemy
     //move
     public Transform pos1, pos2;
     public float maxSpeed;
+    public LayerMask wallsLayer;
+    public Transform wallsCheck;
+    Collider2D touchingWalls;
     float currentSpeed;
     bool facingLeft = true;
     bool isAttacking = false;
@@ -44,21 +47,16 @@ public class Pikeman : MonoBehaviour, IEnemy
     {
         myRb.velocity = new Vector2(currentSpeed, myRb.velocity.y);
         //movement       
-        myAnim.SetFloat("Speed", Mathf.Abs(myRb.velocity.x));
-
-        if (transform.position.x <= pos1.position.x && CheckFlip())
-            flip();
-
-        else if (transform.position.x >= pos2.position.x && CheckFlip())
-            flip();        
+        myAnim.SetFloat("Speed", Mathf.Abs(myRb.velocity.x));        
+        CheckFlip();       
     }
 
 
-    bool CheckFlip()
+    void CheckFlip()
     {
-        if (transform.position.x > pos1.position.x && transform.position.x < pos2.position.x && !isAttacking)
-            return true;
-        else return false;
+        touchingWalls = Physics2D.OverlapCircle(wallsCheck.position, 0.2f, wallsLayer);
+        if (touchingWalls && touchingWalls.tag.Equals("Walls"))
+            flip();
     }
 
     void flip()
