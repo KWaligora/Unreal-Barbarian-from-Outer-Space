@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
 
     void CheckFlip()
     {
-        touchingWalls = Physics2D.OverlapCircle(wallsCheck.position, 0.2f, groundLayer);
+        touchingWalls = Physics2D.OverlapCircle(wallsCheck.position, 0.1f, groundLayer);
         if (touchingWalls && touchingWalls.tag.Equals("Walls"))
             flip();
     }
