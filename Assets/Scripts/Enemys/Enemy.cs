@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     public LayerMask groundLayer;
     public Transform wallsCheck;
     protected bool facingLeft = true;
-    Collider2D touchingWalls;
-    float currentSpeed;    
+    protected float currentSpeed;
+    Collider2D touchingWalls;       
     #endregion
 
     #region Attack_Var
@@ -20,7 +20,8 @@ public class Enemy : MonoBehaviour
     public float attackRange = 1.0f;
     public int damage;
     public float attackRatio;
-    bool canAttack = true;
+    public float delay;
+    protected bool canAttack = true;
     #endregion
 
     #region Health_Var
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour
     public GameObject expBall;
     protected Animator myAnim;
     Material material;
-    Rigidbody2D myRb;
+    Rigidbody2D myRb;    
     #endregion
     
     protected virtual void Start()
@@ -73,11 +74,18 @@ public class Enemy : MonoBehaviour
         currentSpeed *= -1;
     }
 
+    protected void SetSpeed()
+    {
+        if (facingLeft)
+            currentSpeed = maxSpeed;
+        else
+            currentSpeed = -maxSpeed;
+    }
     #endregion
 
     #region TakeDamage
 
-    public void TakeDamage(int dmg)
+   public virtual void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
         if (currentHealth <= 0)
@@ -118,14 +126,17 @@ public class Enemy : MonoBehaviour
     
     #region Attack
 
-    protected virtual void Attack() {  //Override  
+    protected virtual void Attack()
+    {
+        StartCoroutine(AttackDelay(attackRatio));
+
         myAnim.SetTrigger("Attack");
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach (Collider2D player in collider)
         {
             if (player.tag == "Player")
-            {
-                StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>()));
+            {               
+                StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), delay));
                 break;
             }
         }
@@ -138,9 +149,9 @@ public class Enemy : MonoBehaviour
         canAttack = true;
     }
 
-    protected IEnumerator SendDamage(PlayerStats player)
+    protected IEnumerator SendDamage(PlayerStats player, float delay)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(delay);
         player.TakeDamage(damage, transform);
     }
 
@@ -151,19 +162,15 @@ public class Enemy : MonoBehaviour
             //if player is behind, flip
             float playerXPos = collision.gameObject.transform.position.x;
             if (playerXPos < transform.position.x && !facingLeft) flip();
-            else if (playerXPos > transform.position.x && facingLeft) flip();
-
-            StartCoroutine(AttackDelay(attackRatio));
+            else if (playerXPos > transform.position.x && facingLeft) flip();          
+            
             Attack();
             currentSpeed = 0;
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (facingLeft)
-            currentSpeed = maxSpeed;
-        else
-            currentSpeed = -maxSpeed;
+        SetSpeed();
     }
 
     #endregion

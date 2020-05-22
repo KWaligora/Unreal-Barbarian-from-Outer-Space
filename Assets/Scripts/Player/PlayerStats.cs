@@ -108,13 +108,10 @@ public class PlayerStats : MonoBehaviour
             LvlUp(currentExp);
             return;
         }
-        expSlider.value = currentExp;
-        Debug.Log(currentExp);
-    }
+        expSlider.value = currentExp;    }
 
     void LvlUp(int currentExp)
-    {
-        Debug.Log("lvl up");
+    {       
         currentExp -= requiredExp;
         expSlider.value = currentExp;
 
