@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scythe_Skeleton : Enemy, IEnemy
+public class Shielded_Skeleton : Enemy, IEnemy
 {
     bool isBlocking = false;
     bool canBlock = true;
@@ -40,7 +40,7 @@ public class Scythe_Skeleton : Enemy, IEnemy
 
     IEnumerator Block()
     {
-        StartCoroutine(BlockDelay(5.0f));
+        StartCoroutine(BlockDelay());
         myAnim.SetBool("Block", true);
         isBlocking = true;
         currentSpeed = 0;
@@ -50,10 +50,9 @@ public class Scythe_Skeleton : Enemy, IEnemy
         myAnim.SetBool("Block", false);
         isBlocking = false;
         Attack();
-        SetSpeed();
     }
 
-    IEnumerator BlockDelay(float delay)
+    IEnumerator BlockDelay()
     {
         canBlock = false;
         yield return new WaitForSeconds(5.0f);
