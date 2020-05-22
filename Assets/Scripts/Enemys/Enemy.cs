@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     #region Move_Var
+    [Header ("Move")]
     public float maxSpeed;
     public LayerMask groundLayer;
     public Transform wallsCheck;
@@ -14,6 +15,7 @@ public class Enemy : MonoBehaviour
     #endregion
 
     #region Attack_Var
+    [Header ("Attack")]
     public Transform attackPoint;
     public float attackRange = 1.0f;
     public int damage;
@@ -22,11 +24,13 @@ public class Enemy : MonoBehaviour
     #endregion
 
     #region Health_Var
+    [Header ("Health")]
     public int maxHealth;
     int currentHealth;
     #endregion
 
     #region Other_Var
+    [Header ("Other")]
     public int expValue;
     public GameObject expBall;
     protected Animator myAnim;
