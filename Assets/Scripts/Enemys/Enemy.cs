@@ -108,7 +108,11 @@ public class Enemy : MonoBehaviour
         Destroy(this);
     }
 
-    protected virtual void CreateExpBall() { } //Override 
+    void CreateExpBall()
+    {
+        ExpBall ball = Instantiate(expBall, this.gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
+        ball.Init(expValue);
+    }
 
     #endregion
     

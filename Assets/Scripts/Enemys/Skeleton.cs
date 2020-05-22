@@ -18,10 +18,4 @@ public class Skeleton : Enemy, IEnemy
     {
         base.Attack();
     }
-
-    protected override void CreateExpBall()
-    {
-        ExpBall ball = Instantiate(expBall, GetComponentInParent<Skeleton>().transform.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<ExpBall>();
-        ball.Init(expValue);
-    }
 }
