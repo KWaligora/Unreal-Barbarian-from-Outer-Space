@@ -5,42 +5,49 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //move var
+    #region Move_Var
+    [Header ("Move")]
     public float maxSpeed;
+    float isCrouching = 0.0f;
+    #endregion
 
-    //jump var
+    #region Jump_Var
+    [Header("Jump")]
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float jumpHeight;
     bool grounded = false;
     bool canJump = true;
-    float groundCheckRadius = 0.2f; 
+    float groundCheckRadius = 0.2f;
+    #endregion
 
-    //attack var
+    #region Melee_Attack_Var
+    [Header ("Meele Attack")]
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
     public int meleeAttackDMG;
-
     bool attacking = false;
     bool blocking = false;
     int attackNum = 1;
+    #endregion
 
-    //laser var
+    #region Laser_Var
+    [Header ("Laser")]
     public Slider laserSlider;
     public GameObject laserBeam;
     public Transform gunTip;
     int maxLaserCharge = 5;
-    int currentLaserCharge;    
+    int currentLaserCharge;
+    #endregion
 
-    //crouch var
-    float isCrouching = 0.0f;
 
-    //other
+    #region Other_Var
     Rigidbody2D myRB;
     Animator myAnim;
     bool facingRight = true;
-   
+    #endregion
+
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
@@ -78,6 +85,7 @@ public class PlayerController : MonoBehaviour
         Movement();
     }
 
+    #region Move
     void Movement()
     {
         float move = Input.GetAxis("Horizontal");
@@ -108,9 +116,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canJump = true;
     }
+    #endregion
 
-
-
+    #region Fight
     IEnumerator MeleeAttack()
     {
         attacking = true;
@@ -180,4 +188,5 @@ public class PlayerController : MonoBehaviour
             laserSlider.value = currentLaserCharge;
         }
     }
+    #endregion
 }
