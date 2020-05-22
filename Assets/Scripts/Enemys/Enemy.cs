@@ -9,9 +9,9 @@ public class Enemy : MonoBehaviour
     public float maxSpeed;
     public LayerMask groundLayer;
     public Transform wallsCheck;
+    protected bool facingLeft = true;
     Collider2D touchingWalls;
-    float currentSpeed;
-    bool facingLeft = true;
+    float currentSpeed;    
     #endregion
 
     #region Attack_Var
