@@ -50,9 +50,7 @@ public class Pikeman : MonoBehaviour, IEnemy
             flip();
 
         else if (transform.position.x >= pos2.position.x && CheckFlip())
-            flip();
-
-
+            flip();        
     }
 
 
@@ -77,11 +75,9 @@ public class Pikeman : MonoBehaviour, IEnemy
         currentHealth -= dmg;
         if (currentHealth <= 0)
             Die();
-        else
-        {
+        else        
             StartCoroutine(SetTint());
-            myAnim.SetTrigger("Hit");
-        }
+        
     }
 
     void Die()
