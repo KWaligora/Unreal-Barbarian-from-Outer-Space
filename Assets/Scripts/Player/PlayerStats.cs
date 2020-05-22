@@ -5,23 +5,27 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    //health
+    #region Health_Var
+    [Header ("Health")]
+    public Slider healthSlider;
     public int maxHealth;
     int currentHealth;
+    #endregion
 
-    //Exp
+    #region Exp_Var
+    [Header ("Exp")]
+    public Slider expSlider;
     int currentExp;
     int requiredExp;
-    public Slider expSlider;
+    #endregion
 
-    //other
+    #region Other_Var
+    [Header ("Other")]
     public float pushBackForce;
     Animator myAnim;
     PlayerController playerController;
-
-    //HUD
-    public Slider healthSlider;
-
+    #endregion
+    
     void Start()
     {        
         myAnim = GetComponent<Animator>();
@@ -39,6 +43,7 @@ public class PlayerStats : MonoBehaviour
         expSlider.maxValue = requiredExp;
     }
 
+    #region TakeDamage
     public void TakeDamage(int dmg, Transform enemy)
     {
         if (currentHealth > 0)
@@ -92,13 +97,9 @@ public class PlayerStats : MonoBehaviour
         if(currentHealth>0)
             playerController.enabled = true;
     }
+    #endregion
 
-    public void AddHealth(int health)
-    {
-        currentHealth += health;
-        healthSlider.value = currentHealth;
-    }
-
+    #region Exp
     public void AddExp(int exp)
     {
         currentExp += exp;
@@ -121,6 +122,13 @@ public class PlayerStats : MonoBehaviour
         maxHealth += 10;
         currentHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
+    }
+    #endregion
+
+    public void AddHealth(int health)
+    {
+        currentHealth += health;
         healthSlider.value = currentHealth;
     }
 }
