@@ -7,11 +7,6 @@ public class Archer : Enemy, IEnemy
     public GameObject arrow;
     public Transform arrowPlace;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     private void Update()
     {
         SetMovement();

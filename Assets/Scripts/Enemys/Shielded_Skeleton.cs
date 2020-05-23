@@ -7,11 +7,6 @@ public class Shielded_Skeleton : Enemy, IEnemy
     bool isBlocking = false;
     bool canBlock = true;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     private void Update()
     {
         SetMovement();
