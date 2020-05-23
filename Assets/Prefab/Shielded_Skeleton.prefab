@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 2
-  isMobile: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 256

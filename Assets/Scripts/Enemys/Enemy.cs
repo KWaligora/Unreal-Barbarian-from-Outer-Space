@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     #region Move_Var
     [Header ("Move")]
     public float maxSpeed;
-    public bool isMobile;
     public LayerMask groundLayer;
     public Transform wallsCheck;
     protected bool facingLeft = true;

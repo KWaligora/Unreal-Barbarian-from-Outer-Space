@@ -6,8 +6,7 @@ public class Pikeman : Enemy, IEnemy
 {
     void Update()
     {
-        if(isMobile)
-            SetMovement();
+        SetMovement();
     }
 
     protected override void HeavyAttack()

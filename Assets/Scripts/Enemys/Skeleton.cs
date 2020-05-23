@@ -11,8 +11,7 @@ public class Skeleton : Enemy, IEnemy
 
     private void Update()
     {
-        if(isMobile)
-         SetMovement();
+        SetMovement();
     }
 
     protected override void LightAttack()
