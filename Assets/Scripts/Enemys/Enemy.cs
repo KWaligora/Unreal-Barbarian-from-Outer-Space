@@ -105,8 +105,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator SetLoadingTint()
     {
-        material.SetColor("_Color1", new Color(4, 0.5f, 0.5f, 1));
-        yield return new WaitForSeconds(0.8f);
+        material.SetColor("_Color1", new Color(0.8f, 0.2f, 0.2f, 1));
+        yield return new WaitForSeconds(1.0f);
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 
