@@ -24,7 +24,7 @@ public class Arrow : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<PlayerStats>().TakeDamage(damage, transform);
+            collision.gameObject.GetComponent<PlayerStats>().TakeTrueDamage(damage, transform);
             Destroy(myRB);
             transform.SetParent(collision.transform);
         }
