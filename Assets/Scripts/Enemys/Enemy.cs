@@ -103,13 +103,6 @@ public class Enemy : MonoBehaviour
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 
-    IEnumerator SetLoadingTint()
-    {
-        material.SetColor("_Color1", new Color(0.8f, 0.2f, 0.2f, 1));
-        yield return new WaitForSeconds(1.0f);
-        material.SetColor("_Color1", new Color(1, 1, 1, 1));
-    }
-
     void Die()
     {
         Rigidbody2D myRB = GetComponent<Rigidbody2D>();
@@ -153,6 +146,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void HeavyAttack()
     {
+        
         myAnim.SetTrigger("Attack2");
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach (Collider2D player in collider)
@@ -167,10 +161,17 @@ public class Enemy : MonoBehaviour
 
     IEnumerator HeavyAttackLoading()
     {
-        StartCoroutine(AttackDelay(3.0f));
+        StartCoroutine(AttackDelay(2.0f));
         StartCoroutine(SetLoadingTint());
         yield return new WaitForSeconds(1.0f);
         HeavyAttack();
+    }
+
+    IEnumerator SetLoadingTint()
+    {
+        material.SetColor("_Color1", new Color(0.8f, 0.2f, 0.2f, 1));
+        yield return new WaitForSeconds(1.0f);
+        material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 
     protected IEnumerator AttackDelay(float delay)

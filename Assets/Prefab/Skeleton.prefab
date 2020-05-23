@@ -190,7 +190,7 @@ MonoBehaviour:
   attackPoint: {fileID: 9038616873791099480}
   attackRange: 1.5
   damage: 30
-  attackRatio: 1
+  attackRatio: 2
   delay: 0.2
   lightPushBackForce: 5
   heavyPushBackForce: 5
