@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header ("Move")]
     public float maxSpeed;
     float isCrouching = 0.0f;
+    CapsuleCollider2D collider;
     #endregion
 
     #region Jump_Var
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        collider = GetComponent<CapsuleCollider2D>();
         currentLaserCharge = 0;
         laserSlider.value = 0;
     }
@@ -167,12 +169,20 @@ public class PlayerController : MonoBehaviour
     void Crouch()
     {
         isCrouching = Input.GetAxis("Vertical");
-        if (grounded && isCrouching < 0.0){
+        if (grounded && isCrouching < 0.0)
+        {
             myAnim.SetBool("Crouch", true);
             myRB.velocity = new Vector2(0, myRB.velocity.y);
+
+            collider.size = new Vector2(collider.size.x, 1.5f);
+            collider.offset = new Vector2(collider.offset.x, -0.627f);
         }
         else
-            myAnim.SetBool("Crouch", false);        
+        {
+            myAnim.SetBool("Crouch", false);
+            collider.size = new Vector2(collider.size.x,  2.34f);
+            collider.offset = new Vector2(collider.offset.x, -0.212f);
+        }
     }
 
     public bool isBlocking()

@@ -259,9 +259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff7f12126a47464294b552bbde205b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  pushBackForce: 10
   healthSlider: {fileID: 0}
+  maxHealth: 100
+  expSlider: {fileID: 0}
+  pushBackForce: 10
 --- !u!70 &4945717365097503392
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -275,6 +276,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008241653, y: -0.21171618}
-  m_Size: {x: 0.86408615, y: 2.3407316}
+  m_Offset: {x: 0.008241653, y: -0.212}
+  m_Size: {x: 0.86408615, y: 2.34}
   m_Direction: 0
