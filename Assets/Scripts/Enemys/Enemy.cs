@@ -203,7 +203,7 @@ public class Enemy : MonoBehaviour
                 if (playerXPos < transform.position.x && !facingLeft) flip();
                 else if (playerXPos > transform.position.x && facingLeft) flip();
 
-                if (Random.Range(0, 3) < 4)
+                if (Random.Range(0, 3) == 2)
                 {
                     StartCoroutine(HeavyAttackLoading());
                 }

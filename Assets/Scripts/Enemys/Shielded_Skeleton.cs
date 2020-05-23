@@ -18,7 +18,7 @@ public class Shielded_Skeleton : Enemy, IEnemy
         {
             StartCoroutine(AttackDelay(attackRatio));
 
-            myAnim.SetTrigger("Attack");
+            myAnim.SetTrigger("Attack1");
             Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
             foreach (Collider2D player in collider)
             {
@@ -32,6 +32,12 @@ public class Shielded_Skeleton : Enemy, IEnemy
         }
     }
 
+    protected override void HeavyAttack()
+    {
+        if(!isBlocking)
+            base.HeavyAttack();
+    }
+
     public override void TakeDamage(int dmg)
     {
         if (!isBlocking)
@@ -40,14 +46,13 @@ public class Shielded_Skeleton : Enemy, IEnemy
 
             if (Random.Range(0, 2) == 1 && canBlock)
             {                
-                StartCoroutine(Block());
+                StartCoroutine(Block());                
             }
         }
     }
 
     IEnumerator Block()
-    {
-        StartCoroutine(BlockDelay());
+    {        
         myAnim.SetBool("Block", true);
         isBlocking = true;
         currentSpeed = 0;
@@ -56,13 +61,15 @@ public class Shielded_Skeleton : Enemy, IEnemy
 
         myAnim.SetBool("Block", false);
         isBlocking = false;
+        StopAllCoroutines();
+        StartCoroutine(BlockDelay());
         LightAttack();
     }
 
     IEnumerator BlockDelay()
     {
         canBlock = false;
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
         canBlock = true;
     }
 
