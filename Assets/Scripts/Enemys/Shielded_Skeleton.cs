@@ -12,7 +12,7 @@ public class Shielded_Skeleton : Enemy, IEnemy
         SetMovement();
     }
 
-    protected override void Attack()
+    protected override void LightAttack()
     {
         if (!isBlocking)
         {
@@ -56,7 +56,7 @@ public class Shielded_Skeleton : Enemy, IEnemy
 
         myAnim.SetBool("Block", false);
         isBlocking = false;
-        Attack();
+        LightAttack();
     }
 
     IEnumerator BlockDelay()

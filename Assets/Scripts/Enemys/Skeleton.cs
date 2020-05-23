@@ -14,8 +14,8 @@ public class Skeleton : Enemy, IEnemy
         SetMovement();
     }
 
-    protected override void Attack()
+    protected override void LightAttack()
     {
-        base.Attack();
+        base.LightAttack();
     }
 }

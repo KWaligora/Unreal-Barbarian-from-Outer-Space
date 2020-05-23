@@ -126,11 +126,11 @@ public class Enemy : MonoBehaviour
     
     #region Attack
 
-    protected virtual void Attack()
+    protected virtual void LightAttack()
     {
         StartCoroutine(AttackDelay(attackRatio));
 
-        myAnim.SetTrigger("Attack");
+        myAnim.SetTrigger("Attack1");
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach (Collider2D player in collider)
         {
@@ -141,6 +141,22 @@ public class Enemy : MonoBehaviour
             }
         }
     }       
+
+    protected virtual void HeavyAttack()
+    {
+        StartCoroutine(AttackDelay(attackRatio));
+
+        myAnim.SetTrigger("Attack2");
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
+        foreach (Collider2D player in collider)
+        {
+            if (player.tag == "Player")
+            {
+                StartCoroutine(SendTrueDamage(player.gameObject.GetComponent<PlayerStats>(), delay));
+                break;
+            }
+        }
+    }
 
     protected IEnumerator AttackDelay(float delay)
     {
@@ -155,6 +171,12 @@ public class Enemy : MonoBehaviour
         player.TakeDamage(damage, transform);
     }
 
+    protected IEnumerator SendTrueDamage(PlayerStats player, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        player.TakeTrueDamage(damage * 2, transform);
+    }
+
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
@@ -166,7 +188,10 @@ public class Enemy : MonoBehaviour
                 if (playerXPos < transform.position.x && !facingLeft) flip();
                 else if (playerXPos > transform.position.x && facingLeft) flip();
 
-                Attack();
+                if (Random.Range(0, 3) == 2)
+                    HeavyAttack();
+                else
+                    LightAttack();               
             }
             currentSpeed = 0;
         }

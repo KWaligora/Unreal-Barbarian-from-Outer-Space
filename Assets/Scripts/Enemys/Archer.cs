@@ -12,7 +12,7 @@ public class Archer : Enemy, IEnemy
         SetMovement();
     }
 
-    protected override void Attack()
+    protected override void LightAttack()
     {
         StartCoroutine(AttackDelay(attackRatio));
         myAnim.SetTrigger("Attack");
