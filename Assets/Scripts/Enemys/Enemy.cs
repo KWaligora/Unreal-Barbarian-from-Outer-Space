@@ -142,7 +142,7 @@ public class Enemy : MonoBehaviour
         }
     }       
 
-    IEnumerator AttackDelay(float delay)
+    protected IEnumerator AttackDelay(float delay)
     {
         canAttack = false;
         yield return new WaitForSeconds(delay);
@@ -157,14 +157,17 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player") && canAttack)
+        if (collision.gameObject.tag.Equals("Player"))
         {
-            //if player is behind, flip
-            float playerXPos = collision.gameObject.transform.position.x;
-            if (playerXPos < transform.position.x && !facingLeft) flip();
-            else if (playerXPos > transform.position.x && facingLeft) flip();          
-            
-            Attack();
+            if (canAttack)
+            {
+                //if player is behind, flip
+                float playerXPos = collision.gameObject.transform.position.x;
+                if (playerXPos < transform.position.x && !facingLeft) flip();
+                else if (playerXPos > transform.position.x && facingLeft) flip();
+
+                Attack();
+            }
             currentSpeed = 0;
         }
     }

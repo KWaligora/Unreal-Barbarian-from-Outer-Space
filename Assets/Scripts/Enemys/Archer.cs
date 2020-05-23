@@ -19,6 +19,7 @@ public class Archer : Enemy, IEnemy
 
     protected override void Attack()
     {
+        StartCoroutine(AttackDelay(attackRatio));
         myAnim.SetTrigger("Attack");
 
         if (facingLeft)
