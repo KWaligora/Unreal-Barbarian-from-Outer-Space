@@ -21,7 +21,19 @@ public class Shielded_Skeleton : Enemy, IEnemy
     {
         if (!isBlocking)
         {
-            base.Attack();
+            StartCoroutine(AttackDelay(attackRatio));
+
+            myAnim.SetTrigger("Attack");
+            Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
+            foreach (Collider2D player in collider)
+            {
+                if (player.tag == "Player")
+                {
+                    StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), delay));
+                    StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), delay * 2.0f));
+                    break;
+                }
+            }
         }
     }
 
