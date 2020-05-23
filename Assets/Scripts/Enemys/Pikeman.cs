@@ -18,4 +18,9 @@ public class Pikeman : Enemy, IEnemy
     {
         base.Attack();
     }
+
+    public override void TakeDamage(int dmg)
+    {
+        base.TakeDamage(dmg);
+    }
 }
