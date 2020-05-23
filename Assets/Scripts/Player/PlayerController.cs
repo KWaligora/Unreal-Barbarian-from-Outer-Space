@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     int currentLaserCharge;
     #endregion
 
-
     #region Other_Var
     Rigidbody2D myRB;
     Animator myAnim;

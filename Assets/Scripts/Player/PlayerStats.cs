@@ -44,33 +44,37 @@ public class PlayerStats : MonoBehaviour
     }
 
     #region TakeDamage
-    public void TakeDamage(int dmg, Transform enemy)
+    public void TakeDamage(int dmg, Transform enemyTransform)
     {
         if (currentHealth > 0)
         {
             if (!playerController.isBlocking())
             {
-                currentHealth -= dmg;
-                healthSlider.value = currentHealth;
-                if (currentHealth <= 0)
-                    Die();
-                else
-                    myAnim.SetTrigger("Hurt");
-                pushBack(enemy, pushBackForce);
+                TakeHealth(dmg);
+                PushBack(enemyTransform, pushBackForce);
+                myAnim.SetTrigger("Hurt");
             }
+
             else
-            {                
-                currentHealth -= Mathf.RoundToInt(dmg/8.0f);
-                healthSlider.value = currentHealth;
-                if (currentHealth <= 0)
-                    Die();
-                else
-                pushBack(enemy, pushBackForce / 2.0f);
+            {
+                dmg = Mathf.RoundToInt(dmg / 8.0f);
+                TakeHealth(dmg);                
+                PushBack(enemyTransform, pushBackForce / 2.0f);
             }
+            
         }
     }
 
-    void pushBack(Transform enemy, float pushForce)
+    void TakeHealth(int dmg)
+    {
+        currentHealth -= dmg;
+        healthSlider.value = currentHealth;        
+
+        if (currentHealth <= 0)
+            Die();            
+    }
+
+    void PushBack(Transform enemy, float pushForce)
     {
         StartCoroutine(FreezeController());
 
