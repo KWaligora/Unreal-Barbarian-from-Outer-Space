@@ -9,7 +9,8 @@ public class Shielded_Skeleton : Enemy, IEnemy
 
     private void Update()
     {
-        SetMovement();
+        if(isMobile)
+            SetMovement();
     }
 
     protected override void LightAttack()
