@@ -93,13 +93,20 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
             Die();
         else
-            StartCoroutine(SetTint());
+            StartCoroutine(SetHitTint());
     }
 
-    IEnumerator SetTint()
+    IEnumerator SetHitTint()
     {
         material.SetColor("_Color1", new Color(2, 2, 2, 1));
         yield return new WaitForSeconds(0.25f);
+        material.SetColor("_Color1", new Color(1, 1, 1, 1));
+    }
+
+    IEnumerator SetLoadingTint()
+    {
+        material.SetColor("_Color1", new Color(4, 0.5f, 0.5f, 1));
+        yield return new WaitForSeconds(0.8f);
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
     }
 
@@ -146,8 +153,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void HeavyAttack()
     {
-        StartCoroutine(AttackDelay(attackRatio));
-
         myAnim.SetTrigger("Attack2");
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach (Collider2D player in collider)
@@ -158,6 +163,14 @@ public class Enemy : MonoBehaviour
                 break;
             }
         }
+    }
+
+    IEnumerator HeavyAttackLoading()
+    {
+        StartCoroutine(AttackDelay(3.0f));
+        StartCoroutine(SetLoadingTint());
+        yield return new WaitForSeconds(1.0f);
+        HeavyAttack();
     }
 
     protected IEnumerator AttackDelay(float delay)
@@ -190,8 +203,10 @@ public class Enemy : MonoBehaviour
                 if (playerXPos < transform.position.x && !facingLeft) flip();
                 else if (playerXPos > transform.position.x && facingLeft) flip();
 
-                if (Random.Range(0, 3) == 2)
-                    HeavyAttack();
+                if (Random.Range(0, 3) < 4)
+                {
+                    StartCoroutine(HeavyAttackLoading());
+                }
                 else
                     LightAttack();               
             }
