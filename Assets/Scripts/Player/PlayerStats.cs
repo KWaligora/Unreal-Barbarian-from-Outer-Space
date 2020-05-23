@@ -67,8 +67,8 @@ public class PlayerStats : MonoBehaviour
     public void TakeTrueDamage(int dmg, Transform enemyTransform, float pushBackForce)
     {
         TakeHealth(dmg);
-        PushBack(enemyTransform, pushBackForce);
         myAnim.SetTrigger("Hurt");
+        PushBack(enemyTransform, pushBackForce);        
     }
 
     void TakeHealth(int dmg)

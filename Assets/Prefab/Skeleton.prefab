@@ -191,6 +191,9 @@ MonoBehaviour:
   attackRange: 1.5
   damage: 30
   attackRatio: 1
+  delay: 0.2
+  lightPushBackForce: 5
+  heavyPushBackForce: 5
   maxHealth: 70
   expValue: 60
   expBall: {fileID: 5650170049934055341, guid: e85c7ec9a4e8e2b4095bb7c4e3f23129, type: 3}
