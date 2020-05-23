@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     public int damage;
     public float attackRatio;
     public float delay;
+    public float lightPushBackForce;
+    public float heavyPushBackForce;
     protected bool canAttack = true;
     #endregion
 
@@ -152,7 +154,7 @@ public class Enemy : MonoBehaviour
         {
             if (player.tag == "Player")
             {
-                StartCoroutine(SendTrueDamage(player.gameObject.GetComponent<PlayerStats>(), delay));
+                StartCoroutine(SendTrueDamage(player.gameObject.GetComponent<PlayerStats>(), delay, damage * 2));
                 break;
             }
         }
@@ -168,13 +170,13 @@ public class Enemy : MonoBehaviour
     protected IEnumerator SendDamage(PlayerStats player, float delay)
     {
         yield return new WaitForSeconds(delay);
-        player.TakeDamage(damage, transform);
+        player.TakeDamage(damage, transform, lightPushBackForce);
     }
 
-    protected IEnumerator SendTrueDamage(PlayerStats player, float delay)
+    protected IEnumerator SendTrueDamage(PlayerStats player, float delay, int dmg)
     {
         yield return new WaitForSeconds(delay);
-        player.TakeTrueDamage(damage * 2, transform);
+        player.TakeTrueDamage(dmg, transform, heavyPushBackForce);
     }
 
     void OnTriggerStay2D(Collider2D collision)

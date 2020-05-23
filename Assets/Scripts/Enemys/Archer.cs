@@ -15,13 +15,17 @@ public class Archer : Enemy, IEnemy
     protected override void LightAttack()
     {
         StartCoroutine(AttackDelay(attackRatio));
-        myAnim.SetTrigger("Attack");
+        myAnim.SetTrigger("Attack1");
 
         if (facingLeft)
-            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 180f))).gameObject.GetComponent<Arrow>().SetDamage(damage);
+            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 180f))).gameObject.GetComponent<Arrow>().SetDamage(damage, lightPushBackForce);
         else
-            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<Arrow>().SetDamage(damage);        
+            Instantiate(arrow, arrowPlace.position, Quaternion.Euler(new Vector3(0, 0, 0))).gameObject.GetComponent<Arrow>().SetDamage(damage, lightPushBackForce);        
+    }
+    protected override void HeavyAttack()
+    {
+        LightAttack();       
     }
 
-   
+
 }

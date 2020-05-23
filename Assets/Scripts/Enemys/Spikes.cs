@@ -6,6 +6,7 @@ public class Spikes : MonoBehaviour
 {
     bool canHurt = true;
     public int damage;
+    public float pushBackForce;
 
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -23,7 +24,7 @@ public class Spikes : MonoBehaviour
     IEnumerator sentDamage(Collider2D player)
     {
         canHurt = false;
-        player.gameObject.GetComponent<PlayerStats>().TakeDamage(damage, transform);
+        player.gameObject.GetComponent<PlayerStats>().TakeDamage(damage, transform, pushBackForce);
         yield return new WaitForSeconds(1);
         canHurt = true;
     }

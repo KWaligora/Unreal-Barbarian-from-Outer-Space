@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5370671552272295232}
   - component: {fileID: 6235151770354541895}
   m_Layer: 10
-  m_Name: Scythe_Skeleton
+  m_Name: Shielded_Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,6 +172,8 @@ MonoBehaviour:
   damage: 20
   attackRatio: 2
   delay: 0.3
+  lightPushBackForce: 3
+  heavyPushBackForce: 5
   maxHealth: 150
   expValue: 30
   expBall: {fileID: 5650170049934055341, guid: e85c7ec9a4e8e2b4095bb7c4e3f23129, type: 3}

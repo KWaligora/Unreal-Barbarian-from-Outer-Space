@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  pushBackForce: 3
 --- !u!61 &1857685835936205761
 BoxCollider2D:
   m_ObjectHideFlags: 0

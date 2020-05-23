@@ -21,7 +21,6 @@ public class PlayerStats : MonoBehaviour
 
     #region Other_Var
     [Header ("Other")]
-    public float pushBackForce;
     Animator myAnim;
     PlayerController playerController;
     #endregion
@@ -44,7 +43,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     #region TakeDamage
-    public void TakeDamage(int dmg, Transform enemyTransform)
+    public void TakeDamage(int dmg, Transform enemyTransform, float pushBackForce)
     {
         if (currentHealth > 0)
         {
@@ -65,7 +64,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void TakeTrueDamage(int dmg, Transform enemyTransform)
+    public void TakeTrueDamage(int dmg, Transform enemyTransform, float pushBackForce)
     {
         TakeHealth(dmg);
         PushBack(enemyTransform, pushBackForce);

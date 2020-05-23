@@ -9,6 +9,8 @@ public class Arrow : MonoBehaviour
 
     Rigidbody2D myRB;
     int damage;
+    float pushBackForce;
+
 
     void Awake()
     {
@@ -24,14 +26,15 @@ public class Arrow : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<PlayerStats>().TakeTrueDamage(damage, transform);
+            collision.gameObject.GetComponent<PlayerStats>().TakeTrueDamage(damage, transform, pushBackForce);
             Destroy(myRB);
             transform.SetParent(collision.transform);
         }
     }
 
-    public void SetDamage(int dmg)
+    public void SetDamage(int dmg, float force)
     {
         damage = dmg;
+        pushBackForce = force;
     }
 }
