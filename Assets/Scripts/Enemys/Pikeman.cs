@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Pikeman : Enemy, IEnemy
 {
-    void Update()
-    {
-        SetMovement();
-    }
-
     protected override void HeavyAttack()
     {      
         myAnim.SetTrigger("Attack2");

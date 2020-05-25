@@ -7,11 +7,6 @@ public class Archer : Enemy, IEnemy
     public GameObject arrow;
     public Transform arrowPlace;
 
-    private void Update()
-    {
-        SetMovement();
-    }
-
     protected override void LightAttack()
     {
         StartCoroutine(AttackDelay(attackRatio));

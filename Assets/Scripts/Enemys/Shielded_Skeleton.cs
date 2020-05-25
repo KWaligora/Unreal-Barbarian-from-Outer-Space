@@ -7,11 +7,6 @@ public class Shielded_Skeleton : Enemy, IEnemy
     bool isBlocking = false;
     bool canBlock = true;
 
-    private void Update()
-    {
-        SetMovement();
-    }
-
     protected override void LightAttack()
     {
         if (!isBlocking)

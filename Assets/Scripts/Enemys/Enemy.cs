@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float maxSpeed;
     public LayerMask groundLayer;
     public Transform wallsCheck;
+    public bool isMobile;
     protected bool facingLeft = true;
     protected float currentSpeed;
     Collider2D touchingWalls;       
@@ -49,6 +50,12 @@ public class Enemy : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         maxSpeed *= -1;
         currentSpeed = maxSpeed;
+    }
+
+    protected virtual void Update()
+    {
+        if (isMobile)
+            SetMovement();
     }
 
     #region Movement
