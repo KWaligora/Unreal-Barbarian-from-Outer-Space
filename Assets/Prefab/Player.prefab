@@ -243,6 +243,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   meleeAttackDMG: 30
+  attackRatio: 0.5
   laserSlider: {fileID: 0}
   laserBeam: {fileID: 3379859422299581961, guid: f8de56e18aa8a5f40bc8e6d26ba68e7f,
     type: 3}

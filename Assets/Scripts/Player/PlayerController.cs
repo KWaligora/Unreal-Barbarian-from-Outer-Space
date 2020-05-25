@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
     public int meleeAttackDMG;
+    public float attackRatio;
     bool attacking = false;
     bool blocking = false;
     int attackNum = 1;
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour
             enemy.GetComponent<IEnemy>().TakeDamage(meleeAttackDMG);
         }
         attackNum *= -1;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(attackRatio);
         attacking = false;
     }
 
