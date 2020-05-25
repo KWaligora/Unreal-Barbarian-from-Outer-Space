@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3113523883885146378}
   - component: {fileID: 3292999249910455697}
   - component: {fileID: -2127925551174391837}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,11 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169abb00d0d2e54409d006b2636a64b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 0}
-  attackRange: 0.2
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
   lifeTime: 1
   maxSpeed: 20
-  attackDMG: 0

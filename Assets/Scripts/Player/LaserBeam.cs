@@ -29,8 +29,11 @@ public class LaserBeam : MonoBehaviour
         Collider2D[] HitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in HitEnemys)
         {
-            enemy.GetComponent<IEnemy>().TakeDamage(attackDMG);
-            Destroy(gameObject);
+            if (!enemy.isTrigger)
+            {
+                enemy.GetComponent<IEnemy>().TakeDamage(attackDMG);
+                Destroy(gameObject);
+            }
         }
     }
 
