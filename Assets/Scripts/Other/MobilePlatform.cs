@@ -27,6 +27,8 @@ public class MobilePlatform : MonoBehaviour
 
         if (waitForPlayer && hasPlayer)
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+        else if(!waitForPlayer)
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
     }
 
     void OnDrawGizmos()
