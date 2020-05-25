@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public float sentenceDelayTime;
 
     bool canDisplay = true;
+    bool talking = false;
     Queue<string> sentences;
     PlayerController playerController;
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxisRaw("Fire1") > 0 && canDisplay)
+        if (Input.GetAxisRaw("Fire1") > 0 && canDisplay && talking)
         {
             StartCoroutine(SentenceDelay());
             DisplayNextSentence();
@@ -32,6 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        talking = true;
         playerController.enabled = false;
         player.GetComponent<Animator>().SetFloat("Speed", 0);
         anim.SetBool("isOpen", true);
@@ -77,7 +79,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     void EndDialogue()
-    {        
+    {
+        talking = false;
         anim.SetBool("isOpen", false);
         playerController.enabled = true;
     }
