@@ -169,16 +169,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   wallsCheck: {fileID: 7575240057473318824}
+  isMobile: 0
+  flipCharacter: 0
   attackPoint: {fileID: 0}
   attackRange: 1
   damage: 40
   attackRatio: 2
-  delay: 0
+  sendDamageDelay: 0
   lightPushBackForce: 5
   heavyPushBackForce: 0
+  hasHeavyAttack: 0
   maxHealth: 70
   expValue: 20
   expBall: {fileID: 5650170049934055341, guid: e85c7ec9a4e8e2b4095bb7c4e3f23129, type: 3}
+  shotDelay: 0.5
   arrow: {fileID: 1015890503990713471, guid: ce01a2db6a820674a826505b36530d06, type: 3}
   arrowPlace: {fileID: 1996321688932526492}
 --- !u!95 &6012179114639693790

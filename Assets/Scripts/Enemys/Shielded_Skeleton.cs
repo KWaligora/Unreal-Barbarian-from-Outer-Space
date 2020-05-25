@@ -19,8 +19,8 @@ public class Shielded_Skeleton : Enemy, IEnemy
             {
                 if (player.tag == "Player")
                 {
-                    StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), delay));
-                    StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), delay * 2.0f));
+                    StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), sendDamageDelay));
+                    StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), sendDamageDelay * 2.0f));
                     break;
                 }
             }

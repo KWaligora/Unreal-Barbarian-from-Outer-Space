@@ -22,9 +22,10 @@ public class Enemy : MonoBehaviour
     public float attackRange = 1.0f;
     public int damage;
     public float attackRatio;
-    public float delay;
+    public float sendDamageDelay;
     public float lightPushBackForce;
     public float heavyPushBackForce;
+    public bool hasHeavyAttack;
     protected bool canAttack = true;
     #endregion
 
@@ -149,7 +150,7 @@ public class Enemy : MonoBehaviour
         {
             if (player.tag == "Player")
             {               
-                StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), delay));
+                StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), sendDamageDelay));
                 break;
             }
         }
@@ -164,7 +165,7 @@ public class Enemy : MonoBehaviour
         {
             if (player.tag == "Player")
             {
-                StartCoroutine(SendTrueDamage(player.gameObject.GetComponent<PlayerStats>(), delay, damage * 2));
+                StartCoroutine(SendTrueDamage(player.gameObject.GetComponent<PlayerStats>(), sendDamageDelay, damage * 2));
                 break;
             }
         }
@@ -215,7 +216,7 @@ public class Enemy : MonoBehaviour
                 if (playerXPos < transform.position.x && !facingLeft) flip();
                 else if (playerXPos > transform.position.x && facingLeft) flip();
 
-                if (Random.Range(0, 3) == 2)
+                if (Random.Range(0, 3) == 2 && hasHeavyAttack)
                 {
                     StartCoroutine(HeavyAttackLoading());
                 }
