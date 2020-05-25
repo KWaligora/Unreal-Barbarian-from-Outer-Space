@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public LayerMask groundLayer;
     public Transform wallsCheck;
     public bool isMobile;
+    public bool flipCharacter;
     protected bool facingLeft = true;
     protected float currentSpeed;
     Collider2D touchingWalls;       
@@ -50,6 +51,9 @@ public class Enemy : MonoBehaviour
         myRb = GetComponent<Rigidbody2D>();
         maxSpeed *= -1;
         currentSpeed = maxSpeed;
+
+        if (flipCharacter)
+            flip();
     }
 
     protected virtual void Update()
