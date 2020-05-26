@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class LvlManager : MonoBehaviour
 {
     static LvlManager instance;
-    public Vector2 lastCheckpoint;
+    public Vector3 lastCheckpoint;
 
     void Awake()
     {
         if (instance == null)
         {
-            lastCheckpoint = new Vector2(-201, -7);
+            lastCheckpoint = new Vector3(-201, -7, 1);
             instance = this;
             DontDestroyOnLoad(instance);
         }

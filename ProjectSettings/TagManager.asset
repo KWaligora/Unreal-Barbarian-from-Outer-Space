@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Battery
   - Walls
+  - LvlManager
   layers:
   - Default
   - TransparentFX
