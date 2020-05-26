@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         else if (!attacking && Input.GetAxis("Fire2") > 0)
             StartCoroutine(LaserAttack());
         //block
-        if (grounded && Input.GetAxis("Fire3") > 0)
+        if (grounded && Input.GetAxis("Fire3") > 0 && isCrouching == 0.0f)
             Block(true);
         else
             Block(false);
