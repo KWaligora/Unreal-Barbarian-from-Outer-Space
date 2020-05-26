@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     #region Audio_Var
     [Header("Audio")]
+    AudioSource audioSource;
     public AudioClip attackS;
     public AudioClip hitS;
     public AudioClip deathS;
@@ -55,6 +56,8 @@ public class Enemy : MonoBehaviour
     protected virtual void Start()
     {
         currentHealth = maxHealth;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 1.0f;
         myAnim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
         myRb = GetComponent<Rigidbody2D>();
@@ -109,6 +112,8 @@ public class Enemy : MonoBehaviour
 
    public virtual void TakeDamage(int dmg)
     {
+        audioSource.clip = hitS;
+        audioSource.Play();
         currentHealth -= dmg;
         if (currentHealth <= 0)
             Die();
