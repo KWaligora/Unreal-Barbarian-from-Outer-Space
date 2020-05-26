@@ -231,18 +231,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d0aedf2f7dbf44c8998ce9c20ad0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 6164805165390265861}
-  jumpHeight: 300
+  jumpHeight: 700
   attackPoint: {fileID: 199304844874234503}
   attackRange: 0.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
-  meleeAttackDMG: 30
+  meleeAttackDMG: 10
   attackRatio: 0.5
   laserSlider: {fileID: 0}
   laserBeam: {fileID: 3379859422299581961, guid: f8de56e18aa8a5f40bc8e6d26ba68e7f,
