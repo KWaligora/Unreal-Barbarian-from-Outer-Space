@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -27,6 +28,13 @@ public class Enemy : MonoBehaviour
     public float heavyPushBackForce;
     public bool hasHeavyAttack;
     protected bool canAttack = true;
+    #endregion
+
+    #region Audio_Var
+    [Header("Audio")]
+    public AudioClip attackS;
+    public AudioClip hitS;
+    public AudioClip deathS;
     #endregion
 
     #region Health_Var

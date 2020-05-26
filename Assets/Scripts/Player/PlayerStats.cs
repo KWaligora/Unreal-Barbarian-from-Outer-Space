@@ -43,8 +43,8 @@ public class PlayerStats : MonoBehaviour
         expSlider.value = currentExp;
         expSlider.maxValue = requiredExp;
 
-        //lvlManager = GameObject.FindGameObjectWithTag("LvlManager").GetComponent<LvlManager>();
-        //transform.position = lvlManager.lastCheckpoint;
+        lvlManager = GameObject.FindGameObjectWithTag("LvlManager").GetComponent<LvlManager>();
+        transform.position = lvlManager.lastCheckpoint;
     }
 
     #region TakeDamage
