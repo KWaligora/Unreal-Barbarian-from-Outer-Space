@@ -24,7 +24,7 @@ public class Spikes : MonoBehaviour
     IEnumerator sentDamage(Collider2D player)
     {
         canHurt = false;
-        player.gameObject.GetComponent<PlayerStats>().TakeDamage(damage, transform, pushBackForce);
+        player.gameObject.GetComponent<PlayerStats>().TakeTrueDamage(damage, transform, pushBackForce);
         yield return new WaitForSeconds(1);
         canHurt = true;
     }

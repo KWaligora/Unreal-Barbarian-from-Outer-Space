@@ -9,13 +9,7 @@ public class DeathTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))       
-           StartCoroutine(RestartLvl());        
-    }
-
-    IEnumerator RestartLvl()
-    {
-        yield return new WaitForSeconds(restartDelay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (collision.gameObject.tag.Equals("Player"))
+            collision.gameObject.GetComponent<PlayerStats>().TakeTrueDamage(999, transform, 0);
     }
 }

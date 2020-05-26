@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     bool talking = false;
     Queue<string> sentences;
     PlayerController playerController;
-    // Start is called before the first frame update
+    
     void Start()
     {
         sentences = new Queue<string>();

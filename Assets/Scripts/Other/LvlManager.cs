@@ -5,7 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class LvlManager : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    static LvlManager instance;
+    public Vector2 lastCheckpoint;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            lastCheckpoint = new Vector2(-201, -7);
+            instance = this;
+            DontDestroyOnLoad(instance);
+        }
+        else
+            Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
         {

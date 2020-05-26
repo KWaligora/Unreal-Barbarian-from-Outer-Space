@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerStats : MonoBehaviour
     [Header ("Other")]
     Animator myAnim;
     PlayerController playerController;
+    LvlManager lvlManager;
     #endregion
     
     void Start()
@@ -40,6 +42,9 @@ public class PlayerStats : MonoBehaviour
         requiredExp = 100;
         expSlider.value = currentExp;
         expSlider.maxValue = requiredExp;
+
+        lvlManager = GameObject.FindGameObjectWithTag("LvlManager").GetComponent<LvlManager>();
+        transform.position = lvlManager.lastCheckpoint;
     }
 
     #region TakeDamage
@@ -98,6 +103,7 @@ public class PlayerStats : MonoBehaviour
     {
         myAnim.SetTrigger("Death");
         playerController.enabled = false;
+        Respawn();
     }
 
     IEnumerator FreezeController()
@@ -137,5 +143,10 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth += health;
         healthSlider.value = currentHealth;
+    }
+
+    public void Respawn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
