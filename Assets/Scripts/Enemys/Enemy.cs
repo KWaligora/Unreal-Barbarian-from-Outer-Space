@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHealth;
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 1.0f;
+        audioSource.volume = 0.2f;
         myAnim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
         myRb = GetComponent<Rigidbody2D>();
@@ -99,8 +99,9 @@ public class Enemy : MonoBehaviour
         currentSpeed *= -1;
     }
 
-    protected void SetSpeed()
+    protected IEnumerator SetSpeed(float delay)
     {
+        yield return new WaitForSeconds(delay);
         if (facingLeft)
             currentSpeed = maxSpeed;
         else
@@ -237,19 +238,22 @@ public class Enemy : MonoBehaviour
                 if (playerXPos < transform.position.x && !facingLeft) flip();
                 else if (playerXPos > transform.position.x && facingLeft) flip();
 
-                if (Random.Range(0, 3) == 2 && hasHeavyAttack)
+                if (Random.Range(0, 3) < 4 && hasHeavyAttack)
                 {
                     StartCoroutine(HeavyAttackLoading());
                 }
                 else
-                    LightAttack();               
+                    LightAttack();
             }
             currentSpeed = 0;
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        SetSpeed();
+        if (canAttack)
+            StartCoroutine(SetSpeed(0));
+        else
+           StartCoroutine(SetSpeed(2.0f));
     }
 
     #endregion
