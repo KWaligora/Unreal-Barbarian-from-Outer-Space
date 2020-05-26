@@ -9,20 +9,24 @@ public class MainCamera : MonoBehaviour
     public float maxY;
 
     Vector3 offset;
-    float lowY;
-    // Start is called before the first frame update
+    AudioSource audioSource;
+    
     void Start()
     {
         offset = new Vector3(3, 2, -14);
+        audioSource = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         Vector3 targetCamPos = target.position + offset;
 
-        transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);    
+    }
 
-        if (transform.position.y < maxY) transform.position = new Vector3(transform.position.x, maxY, transform.position.z);
+    public void Stop()
+    {
+        audioSource.Stop();
+        Destroy(this);
     }
 }

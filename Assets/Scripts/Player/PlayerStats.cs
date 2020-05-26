@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     public Slider healthSlider;
     public int maxHealth;
     int currentHealth;
+    bool dead = false;
     #endregion
 
     #region Exp_Var
@@ -20,8 +22,17 @@ public class PlayerStats : MonoBehaviour
     int requiredExp;
     #endregion
 
+    #region Audio_Var
+    [Header("Audio")]
+    public AudioClip pickUpS;
+    public AudioClip playerHitS;
+    public AudioClip playerDeathS;
+    AudioSource audioSource;
+    #endregion
+
     #region Other_Var
-    [Header ("Other")]
+    [Header("Other")]
+    public MainCamera camera;
     Animator myAnim;
     PlayerController playerController;
     LvlManager lvlManager;
@@ -31,6 +42,7 @@ public class PlayerStats : MonoBehaviour
     {        
         myAnim = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
 
         //health
         currentHealth = maxHealth;
@@ -43,6 +55,7 @@ public class PlayerStats : MonoBehaviour
         expSlider.value = currentExp;
         expSlider.maxValue = requiredExp;
 
+        //CheckPoint
         lvlManager = GameObject.FindGameObjectWithTag("LvlManager").GetComponent<LvlManager>();
         transform.position = lvlManager.lastCheckpoint;
     }
@@ -71,9 +84,11 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeTrueDamage(int dmg, Transform enemyTransform, float pushBackForce)
     {
-        TakeHealth(dmg);
-        myAnim.SetTrigger("Hurt");
-        PushBack(enemyTransform, pushBackForce);        
+        if(currentHealth > 0) {
+            TakeHealth(dmg);
+            myAnim.SetTrigger("Hurt");
+            PushBack(enemyTransform, pushBackForce);        
+        }
     }
 
     void TakeHealth(int dmg)
@@ -81,8 +96,8 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= dmg;
         healthSlider.value = currentHealth;        
 
-        if (currentHealth <= 0)
-            Die();            
+        if (currentHealth <= 0 && !dead)
+            StartCoroutine(Die());            
     }
 
     void PushBack(Transform enemy, float pushForce)
@@ -99,10 +114,14 @@ public class PlayerStats : MonoBehaviour
         myRB.AddForce(pushDirection, ForceMode2D.Impulse);
     }
 
-    void Die()
+    IEnumerator Die()
     {
+        dead = true;
+        camera.Stop();
+        audioSource.PlayOneShot(playerDeathS);
         myAnim.SetTrigger("Death");
         playerController.enabled = false;
+        yield return new WaitForSeconds(playerDeathS.length);
         Respawn();
     }
 
@@ -118,6 +137,7 @@ public class PlayerStats : MonoBehaviour
     #region Exp
     public void AddExp(int exp)
     {
+        audioSource.PlayOneShot(pickUpS);
         currentExp += exp;
         if (currentExp >= requiredExp)
         {
@@ -141,6 +161,7 @@ public class PlayerStats : MonoBehaviour
 
     public void AddHealth(int health)
     {
+        audioSource.PlayOneShot(pickUpS);
         currentHealth += health;
         healthSlider.value = currentHealth;
     }

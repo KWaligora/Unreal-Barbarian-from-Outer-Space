@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,14 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     float isCrouching = 0.0f;
     CapsuleCollider2D collider;
+    #endregion
+
+    #region Audio_Var
+    [Header("Audio")]
+    public AudioClip playerMeleeAttackS;
+    public AudioClip playerLaserS;
+    public AudioClip pickUpS;
+    AudioSource audioSource;    
     #endregion
 
     #region Jump_Var
@@ -53,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         collider = GetComponent<CapsuleCollider2D>();
         currentLaserCharge = 0;
         laserSlider.value = 0;
@@ -123,6 +133,7 @@ public class PlayerController : MonoBehaviour
     #region Fight
     IEnumerator MeleeAttack()
     {
+        //audioSource.PlayOneShot(playerMeleeAttackS);
         attacking = true;
         if (attackNum == 1)
             myAnim.SetTrigger("Attack");
@@ -140,9 +151,10 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator LaserAttack()
-    {
+    {        
         if (currentLaserCharge > 0)
         {
+            audioSource.PlayOneShot(playerLaserS);
             currentLaserCharge--;
             laserSlider.value = currentLaserCharge;
 
@@ -192,8 +204,10 @@ public class PlayerController : MonoBehaviour
 
     public void AddLaserCharge()
     {
+        audioSource.PlayOneShot(pickUpS);
+
         if (currentLaserCharge < maxLaserCharge)
-        {
+        {            
             currentLaserCharge++;
             laserSlider.value = currentLaserCharge;
         }
