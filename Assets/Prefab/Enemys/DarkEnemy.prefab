@@ -193,7 +193,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   wallsCheck: {fileID: 2595996131452746549}
-  isMobile: 0
+  isMobile: 1
   flipCharacter: 0
   attackPoint: {fileID: 5739151159218788538}
   attackRange: 2
@@ -202,7 +202,7 @@ MonoBehaviour:
   sendDamageDelay: 0
   lightPushBackForce: 5
   heavyPushBackForce: 15
-  hasHeavyAttack: 0
+  hasHeavyAttack: 1
   attackS: {fileID: 8300000, guid: 2951456032cd7a840917e0be2a802050, type: 3}
   hitS: {fileID: 8300000, guid: 429cabbf212363049bfec3bb18015f35, type: 3}
   deathS: {fileID: 8300000, guid: c8634940f84fb1441a1f04d348fc6732, type: 3}

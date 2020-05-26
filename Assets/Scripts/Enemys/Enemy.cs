@@ -162,8 +162,7 @@ public class Enemy : MonoBehaviour
 
         myAnim.SetTrigger("Attack1");
 
-        audioSource.clip = attackS;
-        audioSource.Play();
+        audioSource.PlayOneShot(attackS);
 
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach (Collider2D player in collider)

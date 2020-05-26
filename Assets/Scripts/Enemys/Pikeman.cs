@@ -23,5 +23,24 @@ public class Pikeman : Enemy, IEnemy
                 break;
             }
         }
-    }   
+    }
+
+    protected override void LightAttack()
+    {
+        StartCoroutine(AttackDelay(attackRatio));
+
+        myAnim.SetTrigger("Attack1");
+
+        StartCoroutine(HitSound(0.25f));
+
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
+        foreach (Collider2D player in collider)
+        {
+            if (player.tag == "Player")
+            {
+                StartCoroutine(SendDamage(player.gameObject.GetComponent<PlayerStats>(), sendDamageDelay));
+                break;
+            }
+        }
+    }
 }
