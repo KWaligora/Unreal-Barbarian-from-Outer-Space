@@ -130,6 +130,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        audioSource.clip = deathS;
+        audioSource.Play();
         Rigidbody2D myRB = GetComponent<Rigidbody2D>();
         GetComponent<CapsuleCollider2D>().enabled = false;
         Destroy(myRB);
@@ -158,6 +160,10 @@ public class Enemy : MonoBehaviour
         StartCoroutine(AttackDelay(attackRatio));
 
         myAnim.SetTrigger("Attack1");
+
+        audioSource.clip = attackS;
+        audioSource.Play();
+
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach (Collider2D player in collider)
         {
@@ -171,7 +177,9 @@ public class Enemy : MonoBehaviour
 
     protected virtual void HeavyAttack()
     {
-        
+        audioSource.clip = attackS;
+        audioSource.Play();
+
         myAnim.SetTrigger("Attack2");
         Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
         foreach (Collider2D player in collider)

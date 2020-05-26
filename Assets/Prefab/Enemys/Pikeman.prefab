@@ -209,6 +209,9 @@ MonoBehaviour:
   lightPushBackForce: 3
   heavyPushBackForce: 2
   hasHeavyAttack: 1
+  attackS: {fileID: 8300000, guid: 945f16156d558824fa501c9b265bfc55, type: 3}
+  hitS: {fileID: 8300000, guid: 429cabbf212363049bfec3bb18015f35, type: 3}
+  deathS: {fileID: 8300000, guid: 3cfb4ee00797c9f42a3d1fd4da5836e2, type: 3}
   maxHealth: 100
   expValue: 40
   expBall: {fileID: 5650170049934055341, guid: e85c7ec9a4e8e2b4095bb7c4e3f23129, type: 3}

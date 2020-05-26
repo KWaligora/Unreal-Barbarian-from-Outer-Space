@@ -192,13 +192,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   wallsCheck: {fileID: 2595996131452746549}
+  isMobile: 0
+  flipCharacter: 0
   attackPoint: {fileID: 5739151159218788538}
   attackRange: 2
   damage: 20
   attackRatio: 2
-  delay: 0.5
+  sendDamageDelay: 0
   lightPushBackForce: 5
   heavyPushBackForce: 15
+  hasHeavyAttack: 0
+  attackS: {fileID: 8300000, guid: 2951456032cd7a840917e0be2a802050, type: 3}
+  hitS: {fileID: 8300000, guid: 429cabbf212363049bfec3bb18015f35, type: 3}
+  deathS: {fileID: 8300000, guid: c8634940f84fb1441a1f04d348fc6732, type: 3}
   maxHealth: 70
   expValue: 20
   expBall: {fileID: 5650170049934055341, guid: e85c7ec9a4e8e2b4095bb7c4e3f23129, type: 3}
