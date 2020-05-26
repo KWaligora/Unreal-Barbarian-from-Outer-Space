@@ -13,6 +13,9 @@ public class Shielded_Skeleton : Enemy, IEnemy
         {
             StartCoroutine(AttackDelay(attackRatio));
 
+            audioSource.PlayOneShot(attackS);
+            StartCoroutine(HitSound(attackS.length));
+
             myAnim.SetTrigger("Attack1");
             Collider2D[] collider = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
             foreach (Collider2D player in collider)

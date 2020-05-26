@@ -23,11 +23,5 @@ public class Pikeman : Enemy, IEnemy
                 break;
             }
         }
-    }
-
-    IEnumerator HitSound(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        audioSource.PlayOneShot(attackS);
-    }
+    }   
 }

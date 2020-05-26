@@ -215,6 +215,12 @@ public class Enemy : MonoBehaviour
         canAttack = true;
     }
 
+    protected IEnumerator HitSound(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioSource.PlayOneShot(attackS);
+    }
+
     protected IEnumerator SendDamage(PlayerStats player, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -238,7 +244,7 @@ public class Enemy : MonoBehaviour
                 if (playerXPos < transform.position.x && !facingLeft) flip();
                 else if (playerXPos > transform.position.x && facingLeft) flip();
 
-                if (Random.Range(0, 3) < 4 && hasHeavyAttack)
+                if (Random.Range(0, 3) == 2 && hasHeavyAttack)
                 {
                     StartCoroutine(HeavyAttackLoading());
                 }
