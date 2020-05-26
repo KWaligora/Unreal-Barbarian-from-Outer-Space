@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 
     #region Audio_Var
     [Header("Audio")]
-    AudioSource audioSource;
+    protected AudioSource audioSource;
     public AudioClip attackS;
     public AudioClip hitS;
     public AudioClip deathS;

@@ -15,15 +15,12 @@ public class Archer : Enemy, IEnemy
         StartCoroutine(AttackDelay(attackRatio));
         StartCoroutine(Shot());
                
-    }
-    protected override void HeavyAttack()
-    {
-        LightAttack();       
-    }
+    }   
 
     IEnumerator Shot()
     {
         yield return new WaitForSeconds(shotDelay);
+        audioSource.PlayOneShot(attackS);
         myAnim.SetTrigger("Attack1");
 
         if (facingLeft)
