@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //attack
-        if (!attacking && Input.GetAxis("Fire1") > 0)
+        if (!attacking && Input.GetAxis("Fire1") > 0 && !blocking)
             StartCoroutine(MeleeAttack());
         else if (!attacking && Input.GetAxis("Fire2") > 0)
             StartCoroutine(LaserAttack());
