@@ -1054,6 +1054,11 @@ PrefabInstance:
       propertyPath: laserSlider
       value: 
       objectReference: {fileID: 153676632}
+    - target: {fileID: -2896026979846891091, guid: 0b8432800560ceb42a532d895bd70098,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1724271764704235508, guid: 0b8432800560ceb42a532d895bd70098,
         type: 3}
       propertyPath: healthSlider
@@ -9275,6 +9280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MageBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208494809041160703, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a7597116b5d7b747bdba634f21334f1, type: 3}
