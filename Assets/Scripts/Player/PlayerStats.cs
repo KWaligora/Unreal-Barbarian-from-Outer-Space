@@ -93,6 +93,7 @@ public class PlayerStats : MonoBehaviour
 
     void TakeHealth(int dmg)
     {
+        audioSource.PlayOneShot(playerHitS);
         currentHealth -= dmg;
         healthSlider.value = currentHealth;        
 
