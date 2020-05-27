@@ -119,6 +119,9 @@ public class PlayerStats : MonoBehaviour
     {
         dead = true;        
         camera.GetComponent<AudioSource>().Stop();
+        if(camera.TryGetComponent(out MainCamera cam)){
+            cam.Stop();
+        }
         audioSource.PlayOneShot(playerDeathS);
         myAnim.SetTrigger("Death");
         playerController.enabled = false;
