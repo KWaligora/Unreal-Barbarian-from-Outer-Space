@@ -193,7 +193,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   wallsCheck: {fileID: 2595996131452746549}
-  isMobile: 1
+  isMobile: 0
   flipCharacter: 0
   attackPoint: {fileID: 5739151159218788538}
   attackRange: 2
