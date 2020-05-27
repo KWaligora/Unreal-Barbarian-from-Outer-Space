@@ -22,12 +22,16 @@ public class MageBoss : MonoBehaviour, IEnemy
         myRB = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    #region Movement
+    void flip()
     {
-        myRB.velocity = new Vector2(0, 0);
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
+    #endregion
 
+    #region Take_Damage
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
@@ -49,4 +53,14 @@ public class MageBoss : MonoBehaviour, IEnemy
         myAnim.SetTrigger("Die");
         Destroy(this);
     }
+    #endregion
+
+    #region Fight
+
+    void FireStorm()
+    {
+
+    }
+
+    #endregion
 }
