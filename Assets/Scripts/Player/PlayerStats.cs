@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour
 
     #region Other_Var
     [Header("Other")]
-    public MainCamera camera;
+    public GameObject camera;
     Animator myAnim;
     PlayerController playerController;
     LvlManager lvlManager;
@@ -117,8 +117,8 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator Die()
     {
-        dead = true;
-        camera.Stop();
+        dead = true;        
+        camera.GetComponent<AudioSource>().Stop();
         audioSource.PlayOneShot(playerDeathS);
         myAnim.SetTrigger("Death");
         playerController.enabled = false;

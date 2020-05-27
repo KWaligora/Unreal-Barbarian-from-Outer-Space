@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &865620086319297713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370850426890288782}
+  m_Layer: 10
+  m_Name: FlameThrowerPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &370850426890288782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865620086319297713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.34, y: 0.09, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8208494809041160701}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8208494809041160703
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +44,7 @@ GameObject:
   - component: {fileID: 136899837480272574}
   - component: {fileID: 2805051309645114920}
   - component: {fileID: 1132401143906943166}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: MageBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31,7 +61,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.28, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 370850426890288782}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,7 +155,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   fireball: {fileID: 294457495035691949, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b, type: 3}
+  flameThrower: {fileID: 0}
   fireballStartPos: {fileID: 0}
+  flameThrowerPos: {fileID: 0}
 --- !u!70 &2805051309645114920
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -154,7 +187,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.0462933, y: 0.022864342}
+  m_Offset: {x: -2.0462933, y: 0.17147732}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,5 +198,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.2824135, y: 2.7445507}
+  m_Size: {x: 5.2824135, y: 4.0020504}
   m_EdgeRadius: 0

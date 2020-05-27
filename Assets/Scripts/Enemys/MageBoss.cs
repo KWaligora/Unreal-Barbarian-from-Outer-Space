@@ -14,13 +14,14 @@ public class MageBoss : MonoBehaviour, IEnemy
     [Header("Movement")]
     public Transform[] positions;
     bool facingLeft = true;
-    bool changingPos = false;
     #endregion
 
     #region Fight_Var
     [Header("Fight")]
     public GameObject fireball;
+    public GameObject flameThrower;
     public Transform fireballStartPos;
+    public Transform flameThrowerPos;
     bool canAttack = true;
     bool canDealDamage = false;
     #endregion
@@ -29,7 +30,7 @@ public class MageBoss : MonoBehaviour, IEnemy
     [Header("Other")]
     Animator myAnim;
     Material material;
-    Rigidbody2D myRB;
+    Rigidbody2D myRB;    
     #endregion
 
     // Start is called before the first frame update
@@ -51,10 +52,8 @@ public class MageBoss : MonoBehaviour, IEnemy
 
     IEnumerator ChangePosition()
     {
-        changingPos = true;
         yield return new WaitForSeconds(2.0f);
         FindNextPosition();
-        changingPos = false;
     }
 
     void FindNextPosition()
@@ -130,11 +129,11 @@ public class MageBoss : MonoBehaviour, IEnemy
     {
         canAttack = false;
         int nextSpell = Random.Range(0, 2);
-        if (nextSpell == 1)
+        if (nextSpell == 5)
             FireStorm();
         else
             FlameThrower();
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         StartCoroutine(ChangePosition());
         canAttack = true;
 
@@ -159,8 +158,13 @@ public class MageBoss : MonoBehaviour, IEnemy
     }
 
     void FlameThrower()
-    {
+    {        
         myAnim.SetTrigger("Attack");
+
+        if (facingLeft)
+            Instantiate(flameThrower, flameThrowerPos.position, Quaternion.Euler(new Vector3(0, 0, 180f)));        
+        else
+            Instantiate(flameThrower, flameThrowerPos.position, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 
     IEnumerator SpellLoading()
@@ -172,17 +176,4 @@ public class MageBoss : MonoBehaviour, IEnemy
     }
 
     #endregion
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Player"))
-            canDealDamage = true;
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Player"))
-            canDealDamage = false;
-    }
 }
