@@ -173,7 +173,12 @@ PrefabInstance:
     - target: {fileID: 52935029270143227, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 52935029270143227, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
@@ -231,6 +236,22 @@ PrefabInstance:
       propertyPath: hitS
       value: 
       objectReference: {fileID: 8300000, guid: 429cabbf212363049bfec3bb18015f35, type: 3}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1071121276}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 294457495035691949, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
+        type: 3}
     - target: {fileID: 8208494809041160701, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
       propertyPath: m_LocalPosition.x

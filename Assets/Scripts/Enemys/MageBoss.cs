@@ -32,6 +32,7 @@ public class MageBoss : MonoBehaviour, IEnemy
     public AudioClip hitS;
     public AudioClip fireStormS;
     public AudioClip flameThrowerS;
+    public GameObject camera;
     AudioSource audioSource;
     #endregion
 
@@ -129,9 +130,11 @@ public class MageBoss : MonoBehaviour, IEnemy
     void Die()
     {
         audioSource.PlayOneShot(deathS);
+        camera.GetComponent<AudioSource>().Stop();
         myRB.gravityScale = 1.0f;
         myAnim.SetTrigger("Die");
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
+        gameObject.layer = 0;
         Destroy(this);
     }
     #endregion
