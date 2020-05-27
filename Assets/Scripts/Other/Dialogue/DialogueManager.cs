@@ -33,9 +33,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        talking = true;
         playerController.enabled = false;
+        talking = true;        
         player.GetComponent<Animator>().SetFloat("Speed", 0);
+        player.GetComponent<Animator>().SetBool("Grounded", true);
         anim.SetBool("isOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();

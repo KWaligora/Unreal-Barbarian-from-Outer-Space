@@ -8,18 +8,18 @@ public class DialogueTrigger : MonoBehaviour
 
     bool flag = true;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player") && flag)
         {
-            TriggerDialogue();
-            flag = false;
+            TriggerDialogue();       
         }
     }
     public void TriggerDialogue()
     {
+        flag = false;
         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
         dialogueManager.StartDialogue(dialogue);
-
+        Destroy(this);
     }
 }

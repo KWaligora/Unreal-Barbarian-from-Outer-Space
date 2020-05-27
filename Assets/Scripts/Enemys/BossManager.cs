@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
-    public PlayerController playerController;
-    public PlayerStats PlayerStats;
-    public Animator playerAnim;
     public MageBoss mageboss;
+    public DialogueTrigger dt;
+    bool active = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerAnim.SetBool("Grounded", true);
-        playerController.enabled = false;
-        PlayerStats.enabled = false;
-        mageboss.enabled = false;
+        mageboss.enabled = false;     
     }
 
-    public void Run()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerController.enabled = true;
-        PlayerStats.enabled = true;
-        mageboss.enabled = true;
+        if(collision.gameObject.tag.Equals("Player") && active)
+        {
+            active = false;
+            mageboss.enabled = true;
+        }     
     }
 }
