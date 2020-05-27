@@ -50,6 +50,7 @@ public class MageBoss : MonoBehaviour, IEnemy
 
     void Die()
     {
+        myRB.gravityScale = 1.0f;
         myAnim.SetTrigger("Die");
         Destroy(this);
     }

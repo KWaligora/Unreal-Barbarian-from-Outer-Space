@@ -1392,7 +1392,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!1 &1473971650
 GameObject:
   m_ObjectHideFlags: 0
@@ -9064,7 +9064,7 @@ PrefabInstance:
     - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
       propertyPath: maxHealth
-      value: 500
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8208494809041160701, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
