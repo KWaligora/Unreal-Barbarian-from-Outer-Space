@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1570084782275527616}
   - component: {fileID: 136899837480272574}
   - component: {fileID: 2805051309645114920}
+  - component: {fileID: 1132401143906943166}
   m_Layer: 10
   m_Name: MageBoss
   m_TagString: Enemy
@@ -140,3 +141,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0.07684994, y: -0.10852218}
   m_Size: {x: 1.0822773, y: 2.8539958}
   m_Direction: 0
+--- !u!61 &1132401143906943166
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208494809041160703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.0462933, y: 0.022864342}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.375, y: 9.375}
+    newSize: {x: 1.5, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.2824135, y: 2.7445507}
+  m_EdgeRadius: 0

@@ -21,6 +21,8 @@ public class MageBoss : MonoBehaviour, IEnemy
     [Header("Fight")]
     public GameObject fireball;
     public Transform fireballStartPos;
+    bool canAttack = true;
+    bool canDealDamage = false;
     #endregion
 
     #region Other_Var
@@ -37,20 +39,15 @@ public class MageBoss : MonoBehaviour, IEnemy
         myAnim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
         myRB = GetComponent<Rigidbody2D>();
-
-        FireStorm();
     }
 
     void Update()
     {
-        if (!changingPos)
-        {
-            StartCoroutine(ChangePosition());
-        }
+        if (canAttack)
+            StartCoroutine(LoadNextSpell());
     }
 
     #region Movement
-    
 
     IEnumerator ChangePosition()
     {
@@ -129,20 +126,41 @@ public class MageBoss : MonoBehaviour, IEnemy
 
     #region Fight
 
+    IEnumerator LoadNextSpell()
+    {
+        canAttack = false;
+        int nextSpell = Random.Range(0, 2);
+        if (nextSpell == 1)
+            FireStorm();
+        else
+            FlameThrower();
+        yield return new WaitForSeconds(3.0f);
+        StartCoroutine(ChangePosition());
+        canAttack = true;
+
+    }
+
     void FireStorm()
     {
         StartCoroutine(SpellLoading());
+        Vector3 nextPosition = fireballStartPos.position;
 
         float offset = 1.5f;
         for (int i = 0; i < 19; i++)
         {
-            fireballStartPos.position = 
+            nextPosition = 
                 new Vector3(fireballStartPos.position.x + offset, 
                 fireballStartPos.position.y,
                 fireballStartPos.position.z);
 
-            Instantiate(fireball, fireballStartPos.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+            Instantiate(fireball, nextPosition, Quaternion.Euler(new Vector3(0, 0, 0)));
+            offset += 1.5f;
         }
+    }
+
+    void FlameThrower()
+    {
+        myAnim.SetTrigger("Attack");
     }
 
     IEnumerator SpellLoading()
@@ -154,4 +172,17 @@ public class MageBoss : MonoBehaviour, IEnemy
     }
 
     #endregion
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+            canDealDamage = true;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+            canDealDamage = false;
+    }
 }
