@@ -8,7 +8,7 @@ public class MainCamera : MonoBehaviour
     public float smoothing;
     public float maxY;
 
-    Vector3 offset;
+    public Vector3 offset;
     AudioSource audioSource;
     
     void Start()
