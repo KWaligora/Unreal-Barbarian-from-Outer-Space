@@ -116,9 +116,10 @@ public class MageBoss : MonoBehaviour, IEnemy
     }
 
     void Die()
-    {
+    {        
         myRB.gravityScale = 1.0f;
         myAnim.SetTrigger("Die");
+        material.SetColor("_Color1", new Color(1, 1, 1, 1));
         Destroy(this);
     }
     #endregion
@@ -129,14 +130,13 @@ public class MageBoss : MonoBehaviour, IEnemy
     {
         canAttack = false;
         int nextSpell = Random.Range(0, 2);
-        if (nextSpell == 5)
+        if (nextSpell == 1)
             FireStorm();
         else
             FlameThrower();
         yield return new WaitForSeconds(5.0f);
         StartCoroutine(ChangePosition());
         canAttack = true;
-
     }
 
     void FireStorm()
