@@ -170,6 +170,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52935029270143227, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
       propertyPath: positions.Array.data[0]
@@ -195,6 +200,37 @@ PrefabInstance:
       propertyPath: fireballStartPos
       value: 
       objectReference: {fileID: 2144829926}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: flameThrower
+      value: 
+      objectReference: {fileID: 9222017573863854027, guid: 7e72a6784dab08b4e87aef7410148f56,
+        type: 3}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: flameThrowerPos
+      value: 
+      objectReference: {fileID: 878937271}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: fireStormS
+      value: 
+      objectReference: {fileID: 8300000, guid: 70a92461a2d21a443850341012eb9b55, type: 3}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: flameThrowerS
+      value: 
+      objectReference: {fileID: 8300000, guid: 492a3ef2f4068bf4aa3a3f449a949a24, type: 3}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: deathS
+      value: 
+      objectReference: {fileID: 8300000, guid: 762a5c5c8d2b2bb4cabe7d61651f3867, type: 3}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: hitS
+      value: 
+      objectReference: {fileID: 8300000, guid: 429cabbf212363049bfec3bb18015f35, type: 3}
     - target: {fileID: 8208494809041160701, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1172,7 +1208,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1071121276}
     - target: {fileID: 3030549137122665538, guid: 0b8432800560ceb42a532d895bd70098,
         type: 3}
       propertyPath: m_Volume
@@ -1250,6 +1286,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8996711572827062728, guid: 0b8432800560ceb42a532d895bd70098,
     type: 3}
   m_PrefabInstance: {fileID: 694215310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &878937271 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 370850426890288782, guid: 7a7597116b5d7b747bdba634f21334f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 302890988}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &884484119 stripped
 MonoBehaviour:
@@ -1511,6 +1553,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6f59d6205c799d42bfe41bf40c25bc3, type: 3}
+--- !u!1 &1071121276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3039818517534949643, guid: c9750fc58e046414494991f916afa226,
+    type: 3}
+  m_PrefabInstance: {fileID: 455566042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1368840987
 GameObject:
   m_ObjectHideFlags: 0

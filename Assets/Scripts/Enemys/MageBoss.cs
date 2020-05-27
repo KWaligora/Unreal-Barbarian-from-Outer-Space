@@ -26,11 +26,20 @@ public class MageBoss : MonoBehaviour, IEnemy
     bool canDealDamage = false;
     #endregion
 
+    #region Audio_Var
+    [Header("Audio")]
+    public AudioClip deathS;
+    public AudioClip hitS;
+    public AudioClip fireStormS;
+    public AudioClip flameThrowerS;
+    AudioSource audioSource;
+    #endregion
+
     #region Other_Var
     [Header("Other")]
     Animator myAnim;
     Material material;
-    Rigidbody2D myRB;    
+    Rigidbody2D myRB;  
     #endregion
 
     // Start is called before the first frame update
@@ -40,6 +49,7 @@ public class MageBoss : MonoBehaviour, IEnemy
         myAnim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
         myRB = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -101,6 +111,7 @@ public class MageBoss : MonoBehaviour, IEnemy
     #region Take_Damage
     public void TakeDamage(int dmg)
     {
+        audioSource.PlayOneShot(hitS);
         currentHealth -= dmg;
         if (currentHealth <= 0)
             Die();
@@ -116,7 +127,8 @@ public class MageBoss : MonoBehaviour, IEnemy
     }
 
     void Die()
-    {        
+    {
+        audioSource.PlayOneShot(deathS);
         myRB.gravityScale = 1.0f;
         myAnim.SetTrigger("Die");
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
@@ -141,6 +153,7 @@ public class MageBoss : MonoBehaviour, IEnemy
 
     void FireStorm()
     {
+        audioSource.PlayOneShot(fireStormS);
         StartCoroutine(SpellLoading());
         Vector3 nextPosition = fireballStartPos.position;
 
@@ -158,7 +171,8 @@ public class MageBoss : MonoBehaviour, IEnemy
     }
 
     void FlameThrower()
-    {        
+    {
+        audioSource.PlayOneShot(flameThrowerS);
         myAnim.SetTrigger("Attack");
 
         if (facingLeft)
