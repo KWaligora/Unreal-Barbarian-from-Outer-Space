@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class MageBoss : MonoBehaviour, IEnemy
 {
+    #region Health_Var
     [Header("Health")]
     public int maxHealth;
     int currentHealth;
+    #endregion
 
+    #region Movement_Var
+    [Header("Movement")]
+    public Transform[] positions;
+    bool facingLeft = true;
+    bool changingPos = false;
+    #endregion
+
+    #region Fight_Var
     [Header("Fight")]
     public GameObject fireball;
     public Transform fireballStartPos;
+    #endregion
 
+    #region Other_Var
     [Header("Other")]
     Animator myAnim;
     Material material;
     Rigidbody2D myRB;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +41,46 @@ public class MageBoss : MonoBehaviour, IEnemy
         FireStorm();
     }
 
+    void Update()
+    {
+        if (!changingPos)
+        {
+            StartCoroutine(pos());
+        }
+    }
+
     #region Movement
+    void ChangePosition()
+    {
+        int nextPosition =  Random.Range(0, 4);
+        transform.position = positions[nextPosition].position;
+        CheckFlip(nextPosition);
+    }
+
+    IEnumerator pos()
+    {
+        Debug.Log("cahnging");
+        changingPos = true;
+        yield return new WaitForSeconds(2.0f);
+        ChangePosition();
+        changingPos = false;
+    }
+
+    void CheckFlip(int nextPosition)
+    {
+        if (nextPosition % 2 == 0 && !facingLeft)
+            flip();
+        else if (nextPosition % 2 != 0 && facingLeft)
+            flip();
+    }
+
     void flip()
     {
+        if (facingLeft)
+            facingLeft = false;
+        else
+            facingLeft = true;
+
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
