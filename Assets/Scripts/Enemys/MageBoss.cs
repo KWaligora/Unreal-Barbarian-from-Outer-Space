@@ -45,7 +45,7 @@ public class MageBoss : MonoBehaviour, IEnemy
     {
         if (!changingPos)
         {
-            StartCoroutine(pos());
+            StartCoroutine(PrepareNextPosition());
         }
     }
 
@@ -53,13 +53,22 @@ public class MageBoss : MonoBehaviour, IEnemy
     void ChangePosition()
     {
         int nextPosition =  Random.Range(0, 4);
-        transform.position = positions[nextPosition].position;
+        if (transform.position != positions[nextPosition].position)
+            transform.position = positions[nextPosition].position;
+        else
+        {
+            if (nextPosition == 3) nextPosition = 0;
+
+            else
+                nextPosition++;
+
+            transform.position = positions[nextPosition].position;
+        }
         CheckFlip(nextPosition);
     }
 
-    IEnumerator pos()
+    IEnumerator PrepareNextPosition()
     {
-        Debug.Log("cahnging");
         changingPos = true;
         yield return new WaitForSeconds(2.0f);
         ChangePosition();
