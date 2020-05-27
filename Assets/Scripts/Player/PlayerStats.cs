@@ -67,6 +67,7 @@ public class PlayerStats : MonoBehaviour
         {
             if (!playerController.isBlocking())
             {
+                audioSource.PlayOneShot(playerHitS);
                 TakeHealth(dmg);
                 PushBack(enemyTransform, pushBackForce);
                 myAnim.SetTrigger("Hurt");
@@ -86,14 +87,14 @@ public class PlayerStats : MonoBehaviour
     {
         if(currentHealth > 0) {
             TakeHealth(dmg);
+            audioSource.PlayOneShot(playerHitS);
             myAnim.SetTrigger("Hurt");
             PushBack(enemyTransform, pushBackForce);        
         }
     }
 
     void TakeHealth(int dmg)
-    {
-        audioSource.PlayOneShot(playerHitS);
+    {        
         currentHealth -= dmg;
         healthSlider.value = currentHealth;        
 

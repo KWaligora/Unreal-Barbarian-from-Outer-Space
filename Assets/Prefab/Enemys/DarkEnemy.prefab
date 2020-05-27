@@ -199,7 +199,7 @@ MonoBehaviour:
   attackRange: 2
   damage: 20
   attackRatio: 2
-  sendDamageDelay: 0
+  sendDamageDelay: 0.5
   lightPushBackForce: 5
   heavyPushBackForce: 15
   hasHeavyAttack: 1
