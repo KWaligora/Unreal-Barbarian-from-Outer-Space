@@ -1,36 +1,108 @@
 fileFormatVersion: 2
-guid: d6b8c791d8089b44a9a8c5a7423bd180
+guid: 9fd5957dc245ca94f81c241fad6d7bcf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7008412969330441016
-    second: Attack_0
+      213: -8262534425414574923
+    second: FireBall_0
   - first:
-      213: -7763475090823894447
-    second: Attack_1
+      213: -2299098130814001419
+    second: FireBall_1
   - first:
-      213: 302641331129538988
-    second: Attack_2
+      213: 4273675971853563962
+    second: FireBall_2
   - first:
-      213: -6329420634031446844
-    second: Attack_3
+      213: 2109011874299604264
+    second: FireBall_3
   - first:
-      213: -910092549403018386
-    second: Attack_4
+      213: 4655004638614694147
+    second: FireBall_4
   - first:
-      213: 221524225039350300
-    second: Attack_5
+      213: -7018698412372529880
+    second: FireBall_5
   - first:
-      213: 1290532464073988732
-    second: Attack_6
+      213: -6629576941372164213
+    second: FireBall_6
   - first:
-      213: 4780903288873104255
-    second: Attack_7
+      213: 7969723003635143584
+    second: FireBall_7
+  - first:
+      213: -8729240017603027782
+    second: FireBall_8
+  - first:
+      213: 9100135761907245654
+    second: FireBall_9
+  - first:
+      213: -7878024771688268012
+    second: FireBall_10
+  - first:
+      213: -1005904376048970154
+    second: FireBall_11
+  - first:
+      213: 8779899218144087802
+    second: FireBall_12
+  - first:
+      213: -3069844758956366493
+    second: FireBall_13
+  - first:
+      213: 8788935714495093226
+    second: FireBall_14
+  - first:
+      213: 2205967012365188013
+    second: FireBall_15
+  - first:
+      213: -597153369883400479
+    second: FireBall_16
+  - first:
+      213: 5173214367766333931
+    second: FireBall_17
+  - first:
+      213: -663857301572926055
+    second: FireBall_18
+  - first:
+      213: 218991806566216453
+    second: FireBall_19
+  - first:
+      213: 6575439901699533929
+    second: FireBall_20
+  - first:
+      213: 7589809795874164462
+    second: FireBall_21
+  - first:
+      213: 8666841148046138595
+    second: FireBall_22
+  - first:
+      213: 5191936986300490433
+    second: FireBall_23
+  - first:
+      213: 445824144547293685
+    second: FireBall_24
+  - first:
+      213: -4389869694699566560
+    second: FireBall_25
+  - first:
+      213: -1941316911559152584
+    second: FireBall_26
+  - first:
+      213: 772072103727034001
+    second: FireBall_27
+  - first:
+      213: -5789458512332229216
+    second: FireBall_28
+  - first:
+      213: 1660621621718209401
+    second: FireBall_29
+  - first:
+      213: 5246530135184954134
+    second: FireBall_30
+  - first:
+      213: -3326870654090310180
+    second: FireBall_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -81,7 +153,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -107,53 +179,101 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Lumin
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_0
+      name: FireBall_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc5ab487b4955d80800000000000000
+      internalID: -8262534425414574923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBall_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe11116e66f710e0800000000000000
+      internalID: -2299098130814001419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBall_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38347b47a52f4b30800000000000000
+      internalID: 4273675971853563962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBall_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d65ba2027b44d10800000000000000
+      internalID: 2109011874299604264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireBall_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 150
-        height: 150
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70cacb3d450381f4b8f81ff59a82d748
-      internalID: -7008412969330441016
+      spriteID: 309ac683e06e99040800000000000000
+      internalID: 4655004638614694147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1
+      name: FireBall_5
       rect:
         serializedVersion: 2
-        x: 150
+        x: 64
         y: 0
-        width: 150
-        height: 150
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +302,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d26a02fb465ee4bb4b470505c25f9e
-      internalID: -7763475090823894447
+      spriteID: 82defe80bf2989e90800000000000000
+      internalID: -7018698412372529880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_2
+      name: FireBall_6
       rect:
         serializedVersion: 2
-        x: 300
+        x: 128
         y: 0
-        width: 150
-        height: 150
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +323,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0032599b0b3905a4a8e2d28f44452d6e
-      internalID: 302641331129538988
+      spriteID: b87346695e20ff3a0800000000000000
+      internalID: -6629576941372164213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_3
+      name: FireBall_7
       rect:
         serializedVersion: 2
-        x: 450
+        x: 192
         y: 0
-        width: 150
-        height: 150
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,92 +344,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9332270c80c89d34db8ace6a9c9784cf
-      internalID: -6329420634031446844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_4
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 150
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca1ef84d7e6b3b3448b6d568af4afbf9
-      internalID: -910092549403018386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_5
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 150
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 109ca35916a09134a803aaaec3d8eef9
-      internalID: 221524225039350300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_6
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 150
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19d6d718d653eae40a5338fab4a5d9d5
-      internalID: 1290532464073988732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_7
-      rect:
-        serializedVersion: 2
-        x: 1050
-        y: 0
-        width: 150
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 329f1bce5d33c1242839dd11d24b9c3c
-      internalID: 4780903288873104255
+      spriteID: 0a39eeda8d42a9e60800000000000000
+      internalID: 7969723003635143584
       vertices: []
       indices: 
       edges: []
@@ -326,7 +362,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
