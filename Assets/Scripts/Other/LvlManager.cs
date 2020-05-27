@@ -12,7 +12,6 @@ public class LvlManager : MonoBehaviour
     {
         if (instance == null)
         {
-            lastCheckpoint = new Vector3(-201, -7, 1);
             instance = this;
             DontDestroyOnLoad(instance);
         }

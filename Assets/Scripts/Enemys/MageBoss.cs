@@ -45,34 +45,40 @@ public class MageBoss : MonoBehaviour, IEnemy
     {
         if (!changingPos)
         {
-            StartCoroutine(PrepareNextPosition());
+            StartCoroutine(ChangePosition());
         }
     }
 
     #region Movement
-    void ChangePosition()
+    
+
+    IEnumerator ChangePosition()
     {
-        int nextPosition =  Random.Range(0, 4);
-        if (transform.position != positions[nextPosition].position)
-            transform.position = positions[nextPosition].position;
-        else
+        changingPos = true;
+        yield return new WaitForSeconds(2.0f);
+        FindNextPosition();
+        changingPos = false;
+    }
+
+    void FindNextPosition()
+    {
+        int nextPosition = Random.Range(0, 4);
+        if (transform.position == positions[nextPosition].position)           
         {
             if (nextPosition == 3) nextPosition = 0;
 
             else
-                nextPosition++;
-
-            transform.position = positions[nextPosition].position;
+                nextPosition++;            
         }
-        CheckFlip(nextPosition);
+        StartCoroutine(Teleport(nextPosition));
     }
 
-    IEnumerator PrepareNextPosition()
+    IEnumerator Teleport(int nextPosition)
     {
-        changingPos = true;
-        yield return new WaitForSeconds(2.0f);
-        ChangePosition();
-        changingPos = false;
+        StartCoroutine(SpellLoading());
+        yield return new WaitForSeconds(1.0f);
+        transform.position = positions[nextPosition].position;
+        CheckFlip(nextPosition);
     }
 
     void CheckFlip(int nextPosition)
