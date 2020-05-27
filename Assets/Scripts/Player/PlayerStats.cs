@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour
     public Slider expSlider;
     int currentExp;
     int requiredExp;
+    bool canGetExp = true;
     #endregion
 
     #region Audio_Var
@@ -142,14 +143,19 @@ public class PlayerStats : MonoBehaviour
     #region Exp
     public void AddExp(int exp)
     {
-        audioSource.PlayOneShot(pickUpS);
-        currentExp += exp;
-        if (currentExp >= requiredExp)
+        if (canGetExp)
         {
-            LvlUp(currentExp);
-            return;
+            StartCoroutine(ExpDelay());
+            audioSource.PlayOneShot(pickUpS);
+            currentExp += exp;
+            if (currentExp >= requiredExp)
+            {
+                LvlUp(currentExp);
+                return;
+            }
+            expSlider.value = currentExp;
         }
-        expSlider.value = currentExp;    }
+    }
 
     void LvlUp(int currentExp)
     {       
@@ -163,6 +169,13 @@ public class PlayerStats : MonoBehaviour
         healthSlider.value = currentHealth;
     }
     #endregion
+
+    IEnumerator ExpDelay()
+    {
+        canGetExp = false;
+        yield return new WaitForSeconds(0.25f);
+        canGetExp = true;
+    }
 
     public void AddHealth(int health)
     {

@@ -15,7 +15,6 @@ public class MobilePlatform : MonoBehaviour
     {
         nextPos = pos2.position;
     }
-
     
     void Update()
     {
@@ -27,6 +26,7 @@ public class MobilePlatform : MonoBehaviour
 
         if (waitForPlayer && hasPlayer)
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+
         else if(!waitForPlayer)
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
     }
