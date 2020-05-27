@@ -135,6 +135,10 @@ public class MageBoss : MonoBehaviour, IEnemy
         myAnim.SetTrigger("Die");
         material.SetColor("_Color1", new Color(1, 1, 1, 1));
         gameObject.layer = 0;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<PlayerStats>().enabled = false;
+        player.GetComponent<PlayerController>().enabled = false;
+        player.GetComponent<Animator>().SetBool("Grounded", true);
         Destroy(this);
     }
     #endregion
