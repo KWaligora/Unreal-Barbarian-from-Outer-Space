@@ -20,6 +20,7 @@ public class FireBall : MonoBehaviour
             collision.gameObject.GetComponent<PlayerStats>().TakeTrueDamage(dmg, transform, 5.0f);
             Destroy(gameObject);
         }
+
         else
         {
             Destroy(gameObject);

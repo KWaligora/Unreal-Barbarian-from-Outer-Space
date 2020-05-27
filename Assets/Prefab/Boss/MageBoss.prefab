@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
+  fireball: {fileID: 294457495035691949, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b, type: 3}
+  fireballStartPos: {fileID: 0}
 --- !u!70 &2805051309645114920
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

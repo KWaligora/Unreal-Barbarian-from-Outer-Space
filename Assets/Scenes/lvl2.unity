@@ -198,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 3039818517534949879, guid: c9750fc58e046414494991f916afa226,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3039818517534949879, guid: c9750fc58e046414494991f916afa226,
         type: 3}
@@ -1010,7 +1010,7 @@ Transform:
   - {fileID: 1473971651}
   - {fileID: 461696516}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &694215310
 PrefabInstance:
@@ -1179,7 +1179,7 @@ PrefabInstance:
     - target: {fileID: 4651873918005053280, guid: f915adc386605964b95e6a84f04c5c08,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4651873918005053280, guid: f915adc386605964b95e6a84f04c5c08,
         type: 3}
@@ -1328,7 +1328,7 @@ PrefabInstance:
     - target: {fileID: 3581341642971127068, guid: d6f59d6205c799d42bfe41bf40c25bc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3581341642971127068, guid: d6f59d6205c799d42bfe41bf40c25bc3,
         type: 3}
@@ -9066,6 +9066,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 136899837480272574, guid: 7a7597116b5d7b747bdba634f21334f1,
+        type: 3}
+      propertyPath: fireballStartPos
+      value: 
+      objectReference: {fileID: 2144829926}
     - target: {fileID: 8208494809041160701, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9104,7 +9109,7 @@ PrefabInstance:
     - target: {fileID: 8208494809041160701, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8208494809041160701, guid: 7a7597116b5d7b747bdba634f21334f1,
         type: 3}
@@ -9744,72 +9749,33 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1001 &1982235778
-PrefabInstance:
+--- !u!1 &2144829925
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 294457495035691949, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBall
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.830156
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.040221
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5445219865034168189, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4d60f3957a3fb0e4d914ef0a3dba1a2b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2144829926}
+  m_Layer: 10
+  m_Name: FireballStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2144829926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144829925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.19, y: 9.55, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

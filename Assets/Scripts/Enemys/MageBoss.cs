@@ -8,6 +8,10 @@ public class MageBoss : MonoBehaviour, IEnemy
     public int maxHealth;
     int currentHealth;
 
+    [Header("Fight")]
+    public GameObject fireball;
+    public Transform fireballStartPos;
+
     [Header("Other")]
     Animator myAnim;
     Material material;
@@ -20,6 +24,8 @@ public class MageBoss : MonoBehaviour, IEnemy
         myAnim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
         myRB = GetComponent<Rigidbody2D>();
+
+        FireStorm();
     }
 
     #region Movement
@@ -60,6 +66,25 @@ public class MageBoss : MonoBehaviour, IEnemy
 
     void FireStorm()
     {
+        StartCoroutine(SpellLoading());
+
+        float offset = 1.5f;
+        for (int i = 0; i < 19; i++)
+        {
+            fireballStartPos.position = 
+                new Vector3(fireballStartPos.position.x + offset, 
+                fireballStartPos.position.y,
+                fireballStartPos.position.z);
+
+            Instantiate(fireball, fireballStartPos.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
+    }
+
+    IEnumerator SpellLoading()
+    {
+        myAnim.SetBool("SpellLoading", true);
+        yield return new WaitForSeconds(1.0f);
+        myAnim.SetBool("SpellLoading", false);
 
     }
 
