@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -12,6 +13,12 @@ public class BossManager : MonoBehaviour
     void Start()
     {
         mageboss.enabled = false;     
+    }
+
+    public IEnumerator LoadNextLvl()
+    {        
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("menu");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

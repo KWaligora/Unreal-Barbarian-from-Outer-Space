@@ -38,9 +38,10 @@ public class MageBoss : MonoBehaviour, IEnemy
 
     #region Other_Var
     [Header("Other")]
+    public BossManager bossManager;
     Animator myAnim;
     Material material;
-    Rigidbody2D myRB;  
+    Rigidbody2D myRB;    
     #endregion
 
     // Start is called before the first frame update
@@ -139,8 +140,10 @@ public class MageBoss : MonoBehaviour, IEnemy
         player.GetComponent<PlayerStats>().enabled = false;
         player.GetComponent<PlayerController>().enabled = false;
         player.GetComponent<Animator>().SetBool("Grounded", true);
+        bossManager.StartCoroutine(bossManager.LoadNextLvl());
         Destroy(this);
     }
+
     #endregion
 
     #region Fight
