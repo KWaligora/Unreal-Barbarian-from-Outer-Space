@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4651873918005053214}
   - component: {fileID: 4651873918005053213}
   - component: {fileID: 4651873918005053212}
+  - component: {fileID: 8028911129898853306}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -115,6 +116,21 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &8028911129898853306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651873918005053211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fd6737c0ad8ac41a0d6b4e63c34efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 0}
+  backButton: {fileID: 0}
+  camera: {fileID: 0}
 --- !u!1 &4651873918088705309
 GameObject:
   m_ObjectHideFlags: 0
