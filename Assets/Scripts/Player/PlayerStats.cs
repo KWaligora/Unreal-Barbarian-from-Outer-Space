@@ -40,7 +40,8 @@ public class PlayerStats : MonoBehaviour
     #endregion
     
     void Start()
-    {        
+    {
+        Cursor.visible = false;
         myAnim = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
